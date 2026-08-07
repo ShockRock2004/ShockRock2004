@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="190" viewBox="0 0 1200 190" role="img" aria-label="Animated wave footer">
+  <title>footer</title>
+
+  <defs>
+    <linearGradient id="w1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0E7490"/><stop offset="50%" stop-color="#22D3EE"/><stop offset="100%" stop-color="#0E7490"/>
+    </linearGradient>
+    <linearGradient id="w2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5B21B6"/><stop offset="50%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#5B21B6"/>
+    </linearGradient>
+    <linearGradient id="w3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#064E3B"/><stop offset="50%" stop-color="#34D399"/><stop offset="100%" stop-color="#064E3B"/>
+    </linearGradient>
+    <clipPath id="fclip"><rect x="0" y="0" width="1200" height="190" rx="16"/></clipPath>
+    <style>
+      .m { font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", Consolas, monospace; }
+      .wv1 { animation: slide 14s linear infinite; }
+      .wv2 { animation: slide 21s linear infinite reverse; }
+      .wv3 { animation: slide 28s linear infinite; }
+      @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-1200px); } }
+      .beat { stroke-dasharray: 1400; animation: beat 4s linear infinite; }
+      @keyframes beat { from { stroke-dashoffset: 1400; } to { stroke-dashoffset: -1400; } }
+      .fade { animation: fi 1s ease-out .4s both; }
+      @keyframes fi { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+  </defs>
+
+  <g clip-path="url(#fclip)">
+    <rect width="1200" height="190" fill="#0B0F14"/>
+
+    <path class="beat" fill="none" stroke="#1E3A47" stroke-width="1.6"
+      d="M0 44 H420 l14 -22 l16 44 l14 -30 l12 18 l16 -8 H1200"/>
+
+    <g class="wv3" opacity="0.28" fill="url(#w3)">
+      <path d="M0 96 C150 56 350 136 600 96 C850 56 1050 136 1200 96 C1350 56 1550 136 1800 96 C2050 56 2250 136 2400 96 L2400 220 L0 220 Z"/>
+    </g>
+    <g class="wv2" opacity="0.38" fill="url(#w2)">
+      <path d="M0 112 C150 72 350 152 600 112 C850 72 1050 152 1200 112 C1350 72 1550 152 1800 112 C2050 72 2250 152 2400 112 L2400 220 L0 220 Z"/>
+    </g>
+    <g class="wv1" opacity="0.55" fill="url(#w1)">
+      <path d="M0 128 C150 88 350 168 600 128 C850 88 1050 168 1200 128 C1350 88 1550 168 1800 128 C2050 88 2250 168 2400 128 L2400 220 L0 220 Z"/>
+    </g>
+
+    <g class="m fade" text-anchor="middle">
+      <text x="600" y="30" font-size="14" fill="#8B98A5">still the same plan. build it. break it. find out why.</text>
+      <text x="600" y="176" font-size="11.5" fill="#3D4855">every asset on this page is hand written SVG in /assets. no screenshots.</text>
+    </g>
+  </g>
+
+  <rect x="0.5" y="0.5" width="1199" height="189" rx="16" fill="none" stroke="#1B2733"/>
+</svg>

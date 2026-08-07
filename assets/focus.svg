@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="430" viewBox="0 0 560 430" role="img" aria-label="Current focus progress bars">
+  <title>current focus</title>
+
+  <defs>
+    <linearGradient id="b1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0E7490"/><stop offset="100%" stop-color="#22D3EE"/></linearGradient>
+    <linearGradient id="b2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#155E75"/><stop offset="100%" stop-color="#38BDF8"/></linearGradient>
+    <linearGradient id="b3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#065F46"/><stop offset="100%" stop-color="#34D399"/></linearGradient>
+    <linearGradient id="b4" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4C1D95"/><stop offset="100%" stop-color="#A78BFA"/></linearGradient>
+    <linearGradient id="b5" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#78350F"/><stop offset="100%" stop-color="#FBBF24"/></linearGradient>
+    <filter id="fg" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .m  { font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", Consolas, monospace; }
+      .h  { font-size: 13px; fill: #7D8590; }
+      .l  { font-size: 12.5px; fill: #E6EDF3; font-weight: 600; }
+      .sub{ font-size: 10px; fill: #5D6B7A; }
+      .pc { font-size: 12px; fill: #67E8F9; }
+      .nt { font-size: 10px; fill: #3D4855; }
+      .cap{ animation: cp 1.9s ease-in-out infinite; }
+      @keyframes cp { 0%,100% { opacity:.45; } 50% { opacity:1; } }
+      .row { animation: fi .55s ease-out both; }
+      @keyframes fi { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+  </defs>
+
+  <rect width="560" height="430" rx="14" fill="#0B0F14" stroke="#1B2733"/>
+  <text class="m h" x="24" y="36">// current focus &#183; august 2026</text>
+  <line x1="24" y1="50" x2="536" y2="50" stroke="#1B2733"/>
+
+  <g class="row" style="animation-delay:.1s">
+    <text class="m l"   x="28" y="86">placement prep</text>
+    <text class="m sub" x="28" y="100">DSA &#183; core CS &#183; the whole point of this year</text>
+    <text class="m pc"  x="532" y="86" text-anchor="end">62%</text>
+    <rect x="28" y="108" width="504" height="9" rx="4.5" fill="#141E28"/>
+    <rect y="108" x="28" width="312" height="9" rx="4.5" fill="url(#b1)"><animate attributeName="width" values="0;312" dur="1.3s" begin=".3s" fill="freeze"/></rect>
+    <circle cy="112.5" cx="340" r="4" fill="#67E8F9" class="cap" filter="url(#fg)"><animate attributeName="cx" values="28;340" dur="1.3s" begin=".3s" fill="freeze"/></circle>
+  </g>
+
+  <g class="row" style="animation-delay:.2s">
+    <text class="m l"   x="28" y="148">grindz v2</text>
+    <text class="m sub" x="28" y="162">offline first sync &#183; the hard part is conflicts</text>
+    <text class="m pc"  x="532" y="148" text-anchor="end">45%</text>
+    <rect x="28" y="170" width="504" height="9" rx="4.5" fill="#141E28"/>
+    <rect y="170" x="28" width="227" height="9" rx="4.5" fill="url(#b2)"><animate attributeName="width" values="0;227" dur="1.3s" begin=".45s" fill="freeze"/></rect>
+    <circle cy="174.5" cx="255" r="4" fill="#38BDF8" class="cap" filter="url(#fg)"><animate attributeName="cx" values="28;255" dur="1.3s" begin=".45s" fill="freeze"/></circle>
+  </g>
+
+  <g class="row" style="animation-delay:.3s">
+    <text class="m l"   x="28" y="210">kamar-taj</text>
+    <text class="m sub" x="28" y="224">Claude Code skills &#183; 4 stars from strangers</text>
+    <text class="m pc"  x="532" y="210" text-anchor="end">78%</text>
+    <rect x="28" y="232" width="504" height="9" rx="4.5" fill="#141E28"/>
+    <rect y="232" x="28" width="393" height="9" rx="4.5" fill="url(#b3)"><animate attributeName="width" values="0;393" dur="1.3s" begin=".6s" fill="freeze"/></rect>
+    <circle cy="236.5" cx="421" r="4" fill="#34D399" class="cap" filter="url(#fg)"><animate attributeName="cx" values="28;421" dur="1.3s" begin=".6s" fill="freeze"/></circle>
+  </g>
+
+  <g class="row" style="animation-delay:.4s">
+    <text class="m l"   x="28" y="272">Lodestar</text>
+    <text class="m sub" x="28" y="286">study tracker &#183; web dashboard and Android</text>
+    <text class="m pc"  x="532" y="272" text-anchor="end">55%</text>
+    <rect x="28" y="294" width="504" height="9" rx="4.5" fill="#141E28"/>
+    <rect y="294" x="28" width="277" height="9" rx="4.5" fill="url(#b4)"><animate attributeName="width" values="0;277" dur="1.3s" begin=".75s" fill="freeze"/></rect>
+    <circle cy="298.5" cx="305" r="4" fill="#A78BFA" class="cap" filter="url(#fg)"><animate attributeName="cx" values="28;305" dur="1.3s" begin=".75s" fill="freeze"/></circle>
+  </g>
+
+  <g class="row" style="animation-delay:.5s">
+    <text class="m l"   x="28" y="334">system design</text>
+    <text class="m sub" x="28" y="348">starting from zero and saying so</text>
+    <text class="m pc"  x="532" y="334" text-anchor="end">30%</text>
+    <rect x="28" y="356" width="504" height="9" rx="4.5" fill="#141E28"/>
+    <rect y="356" x="28" width="151" height="9" rx="4.5" fill="url(#b5)"><animate attributeName="width" values="0;151" dur="1.3s" begin=".9s" fill="freeze"/></rect>
+    <circle cy="360.5" cx="179" r="4" fill="#FBBF24" class="cap" filter="url(#fg)"><animate attributeName="cx" values="28;179" dur="1.3s" begin=".9s" fill="freeze"/></circle>
+  </g>
+
+  <line x1="24" y1="386" x2="536" y2="386" stroke="#1B2733"/>
+  <text class="m nt" x="24" y="406">percentages are honest guesses. the 30% is the one I am actually worried about.</text>
+</svg>
