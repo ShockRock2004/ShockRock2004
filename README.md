@@ -17,9 +17,9 @@
 
 Final year undergraduate at IIT Madras, working on systems that put language models to real work rather than demos.
 
-Most of my time goes to two things. Building agentic workflows where an LLM has tools, state and a verification loop instead of a single prompt. And real time voice, where a model has to hold a conversation over a phone line inside a latency budget that does not forgive mistakes.
+Most of my time goes to two things. Building agentic workflows where a model has tools, state and a verification loop instead of a single prompt. And real time voice, where a model has to hold a conversation inside a latency budget that does not forgive mistakes.
 
-I have production experience with telephony infrastructure: FreeSWITCH dialplans, SIP trunking, WebRTC and Verto signalling, codec negotiation between G.711 and Opus, call supervision, and forking live call audio into AI agents. That work sits in private repositories, so this profile shows the public side.
+I have production experience building real time voice systems, including live call audio pipelines that feed AI agents. That work sits in private repositories, so this profile shows the public side.
 
 ---
 
@@ -28,22 +28,43 @@ I have production experience with telephony infrastructure: FreeSWITCH dialplans
 | Area | What that means in practice |
 |---|---|
 | **Agentic AI workflows** | Giving models tools, memory and a verification step. Making the loop reliable enough that the output can be trusted without reading every line. |
-| **Voice AI and telephony** | Streaming speech pipelines over SIP and WebRTC. Turn detection, barge in, codec negotiation, and keeping a conversational turn under budget. |
+| **Voice AI** | Streaming speech pipelines for real time conversation. Turn detection, interruption handling, and keeping response latency low enough to feel natural. |
 | **Applying LLMs to real problems** | Evaluating where automation actually holds up, and where it quietly fails. Building the harness before trusting the model. |
 
 ---
 
-## Real time voice agent pipeline
+## grindz
 
-The architecture I work in and keep rebuilding. The interesting engineering is not the model call. It is everything around it that has to happen inside roughly 800 milliseconds.
+My main project. A workout tracker shipped as a React Native Android app and an installable PWA against one Supabase backend.
 
 <div align="center">
 
-<img src="assets/voice-pipeline.svg" alt="Real time voice agent pipeline with latency budget" width="100%" />
+<img src="assets/grindz.svg" alt="grindz — workout tracker on React Native, PWA and Supabase" width="100%" />
+
+<br/>
+
+<a href="https://github.com/ShockRock2004/grindz">
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/pin/?username=ShockRock2004&repo=grindz&hide_border=true&bg_color=0B0F14&title_color=22D3EE&icon_color=A78BFA&text_color=9FB3C8&border_radius=12" alt="grindz repository" />
+</a>
+<a href="https://grindz.dev">
+  <img src="https://img.shields.io/badge/live_at-grindz.dev-34D399?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0B0F14" alt="grindz.dev" />
+</a>
 
 </div>
 
-Two things dominate the budget and neither is speech processing. Turn detection has to decide the caller actually stopped talking, and the model has to produce its first token. Everything else is streaming and can be overlapped.
+The engineering problem is not the workout log. It is keeping two very different clients honest against one schema, handling writes that happen with no signal, and getting a signed build onto a real device where the failure modes are nothing like a simulator.
+
+---
+
+## How I build with models
+
+<div align="center">
+
+<img src="assets/agent-loop.svg" alt="Agentic loop: task, plan, tool calls, observe, verify, retry" width="100%" />
+
+</div>
+
+The interesting part is the gate at the end. A model that reports success is not evidence. A test that runs, or a second model arguing against the work, is.
 
 ---
 
@@ -63,39 +84,42 @@ Currently working through the fundamentals in parallel with building.
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=python,ts,js,react,nodejs&theme=dark" alt="languages and frameworks" />
+**Languages**
 
-<br/>
+<img src="https://skillicons.dev/icons?i=c,cpp,java,python,ts,js&theme=dark" alt="C, C++, Java, Python, TypeScript, JavaScript" />
 
-<img src="https://skillicons.dev/icons?i=postgres,supabase,docker,linux,git,vercel&theme=dark" alt="data and infrastructure" />
+**Web and mobile**
 
-<br/><br/>
+<img src="https://skillicons.dev/icons?i=react,nodejs,express,vite,tailwind,html,css,androidstudio&theme=dark" alt="React, Node, Express, Vite, Tailwind, HTML, CSS, Android Studio" />
 
-<img src="https://img.shields.io/badge/FreeSWITCH-0B0F14?style=for-the-badge&logoColor=22D3EE&color=0B0F14&labelColor=0B0F14" alt="FreeSWITCH" />
-<img src="https://img.shields.io/badge/SIP-0B0F14?style=for-the-badge&color=0B0F14&labelColor=0B0F14" alt="SIP" />
-<img src="https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white&labelColor=0B0F14&color=0B0F14" alt="WebRTC" />
-<img src="https://img.shields.io/badge/LLM_agents-0B0F14?style=for-the-badge&color=0B0F14&labelColor=0B0F14" alt="LLM agents" />
-<img src="https://img.shields.io/badge/Anthropic-191919?style=for-the-badge&logo=anthropic&logoColor=white&labelColor=0B0F14&color=0B0F14" alt="Anthropic" />
+**Data**
+
+<img src="https://skillicons.dev/icons?i=postgres,sqlite,mongodb,redis,supabase&theme=dark" alt="Postgres, SQLite, MongoDB, Redis, Supabase" />
+
+**Tooling and infrastructure**
+
+<img src="https://skillicons.dev/icons?i=docker,linux,bash,git,github,vscode,postman,vercel,npm&theme=dark" alt="Docker, Linux, Bash, Git, GitHub, VS Code, Postman, Vercel, npm" />
 
 </div>
 
 ---
 
-## Selected work
+## Other work
 
-### [kamar-taj](https://github.com/ShockRock2004/kamar-taj) &nbsp;·&nbsp; Python
+<div align="center">
 
-Agent tooling for Claude Code. Three skills that address a specific failure mode of coding agents: one turns a day of AI assisted work into a readable study guide, one refuses to call a bug fixed until it has watched the test pass, and one sends the work to a second model to argue against it.
+<a href="https://github.com/ShockRock2004/kamar-taj">
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/pin/?username=ShockRock2004&repo=kamar-taj&hide_border=true&bg_color=0B0F14&title_color=22D3EE&icon_color=A78BFA&text_color=9FB3C8&border_radius=12" alt="kamar-taj repository" />
+</a>
+<a href="https://github.com/ShockRock2004/Lodestar">
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/pin/?username=ShockRock2004&repo=Lodestar&hide_border=true&bg_color=0B0F14&title_color=22D3EE&icon_color=A78BFA&text_color=9FB3C8&border_radius=12" alt="Lodestar repository" />
+</a>
 
-Built because reviewing agent output by reading every diff does not scale. Starred by developers outside my network.
+</div>
 
-### [grindz](https://github.com/ShockRock2004/grindz) &nbsp;·&nbsp; TypeScript
+**kamar-taj** is agent tooling for Claude Code. Three skills aimed at a specific failure mode: one turns a day of AI assisted work into a readable study guide, one refuses to call a bug fixed until it has watched the test pass, and one sends the work to a second model to argue against it. Starred by developers outside my network.
 
-A workout tracker running as a React Native Android app and an installable PWA against one Supabase backend and an image CDN. Shipped to a real device with a signed APK, which is where the interesting bugs live.
-
-### [Lodestar](https://github.com/ShockRock2004/Lodestar) &nbsp;·&nbsp; JavaScript
-
-A study tracking system with a React and Vite dashboard plus an Expo Android client on a shared Supabase backend.
+**Lodestar** is a study tracking system with a React and Vite dashboard plus an Expo Android client on a shared Supabase backend.
 
 ---
 
@@ -104,7 +128,12 @@ A study tracking system with a React and Vite dashboard plus an Expo Android cli
 <div align="center">
 
 <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=ShockRock2004&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&bg_color=0B0F14&title_color=22D3EE&icon_color=A78BFA&text_color=9FB3C8&ring_color=22D3EE" alt="GitHub statistics" height="165" />
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=ShockRock2004&theme=github_dark" alt="most committed languages" height="165" />
+<img src="https://streak-stats.demolab.com?user=ShockRock2004&hide_border=true&background=0B0F14&stroke=1B2733&ring=22D3EE&fire=A78BFA&currStreakLabel=22D3EE&sideLabels=9FB3C8&currStreakNum=E6EDF3&sideNums=E6EDF3&dates=5D6B7A&border_radius=12" alt="contribution streak" height="165" />
+
+<br/><br/>
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=ShockRock2004&theme=github_dark" alt="languages by repository" height="185" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=ShockRock2004&theme=github_dark" alt="languages by commit" height="185" />
 
 <br/><br/>
 

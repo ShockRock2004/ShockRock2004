@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1040" height="310" viewBox="0 0 1040 310" role="img" aria-label="Agentic loop: task, plan, tool calls, observe, verify, with a retry path back to planning when verification fails">
+  <title>agentic loop</title>
+
+  <defs>
+    <linearGradient id="bx" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111C26"/><stop offset="100%" stop-color="#0C141C"/>
+    </linearGradient>
+    <linearGradient id="gate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B2A2E"/><stop offset="100%" stop-color="#131A2E"/>
+    </linearGradient>
+    <filter id="ag" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ah2" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="13"/></filter>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3E5A6B"/>
+    </marker>
+    <marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7C5BC0"/>
+    </marker>
+    <style>
+      .m    { font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", Consolas, monospace; }
+      .t    { font-size: 13.5px; font-weight: 700; fill: #E6EDF3; }
+      .s    { font-size: 10px; fill: #8593A2; }
+      .cap  { font-size: 10.5px; fill: #566673; }
+      .chip { font-size: 9px; fill: #9FE8F5; }
+      .hd   { font-size: 12px; fill: #8593A2; }
+      .flow { stroke-dasharray: 5 9; animation: fl 1.1s linear infinite; }
+      @keyframes fl { to { stroke-dashoffset: -14; } }
+      .pop  { animation: pp .55s ease-out both; }
+      @keyframes pp { from { opacity:0; transform: translateY(8px);} to { opacity:1; transform: translateY(0);} }
+      .br   { animation: brr 3s ease-in-out infinite; }
+      @keyframes brr { 0%,100% { opacity:.4; } 50% { opacity:1; } }
+    </style>
+  </defs>
+
+  <rect width="1040" height="310" rx="14" fill="#0B0F14" stroke="#1B2733"/>
+  <text class="m hd" x="24" y="30">agentic loop &#183; how I build with models</text>
+
+  <g fill="none" stroke-linecap="round">
+    <path id="e1" d="M174 155 H216"/>
+    <path id="e2" d="M372 155 H414"/>
+    <path id="e3" d="M590 155 H632"/>
+    <path id="e4" d="M788 155 H830"/>
+    <use xlink:href="#e1" href="#e1" stroke="#263D4C" stroke-width="2" marker-end="url(#arw)"/>
+    <use xlink:href="#e2" href="#e2" stroke="#263D4C" stroke-width="2" marker-end="url(#arw)"/>
+    <use xlink:href="#e3" href="#e3" stroke="#263D4C" stroke-width="2" marker-end="url(#arw)"/>
+    <use xlink:href="#e4" href="#e4" stroke="#263D4C" stroke-width="2" marker-end="url(#arw)"/>
+    <use xlink:href="#e1" href="#e1" stroke="#22D3EE" stroke-width="2" class="flow" opacity="0.85"/>
+    <use xlink:href="#e2" href="#e2" stroke="#22D3EE" stroke-width="2" class="flow" opacity="0.85"/>
+    <use xlink:href="#e3" href="#e3" stroke="#5EEAD4" stroke-width="2" class="flow" opacity="0.85"/>
+    <use xlink:href="#e4" href="#e4" stroke="#5EEAD4" stroke-width="2" class="flow" opacity="0.85"/>
+  </g>
+
+  <g filter="url(#ag)">
+    <circle r="3.6" fill="#67E8F9"><animateMotion dur="1.4s" repeatCount="indefinite"><mpath xlink:href="#e1" href="#e1"/></animateMotion></circle>
+    <circle r="3.6" fill="#67E8F9"><animateMotion dur="1.4s" repeatCount="indefinite" begin=".35s"><mpath xlink:href="#e2" href="#e2"/></animateMotion></circle>
+    <circle r="3.6" fill="#5EEAD4"><animateMotion dur="1.4s" repeatCount="indefinite" begin=".7s"><mpath xlink:href="#e3" href="#e3"/></animateMotion></circle>
+    <circle r="3.6" fill="#5EEAD4"><animateMotion dur="1.4s" repeatCount="indefinite" begin="1.05s"><mpath xlink:href="#e4" href="#e4"/></animateMotion></circle>
+  </g>
+
+  <g class="m pop" style="animation-delay:.04s">
+    <rect x="24" y="112" width="150" height="86" rx="12" fill="url(#bx)" stroke="#22D3EE" stroke-opacity="0.4"/>
+    <text class="t" x="99" y="146" text-anchor="middle">Task</text>
+    <text class="s" x="99" y="166" text-anchor="middle">a real goal</text>
+    <text class="s" x="99" y="181" text-anchor="middle">not a prompt</text>
+  </g>
+
+  <g class="m pop" style="animation-delay:.12s">
+    <rect x="222" y="112" width="150" height="86" rx="12" fill="url(#bx)" stroke="#22D3EE" stroke-opacity="0.4"/>
+    <text class="t" x="297" y="146" text-anchor="middle">Plan</text>
+    <text class="s" x="297" y="166" text-anchor="middle">decompose</text>
+    <text class="s" x="297" y="181" text-anchor="middle">choose tools</text>
+  </g>
+
+  <g class="m pop" style="animation-delay:.2s">
+    <rect x="420" y="106" width="170" height="98" rx="12" fill="url(#bx)" stroke="#5EEAD4" stroke-opacity="0.45"/>
+    <text class="t" x="505" y="134" text-anchor="middle">Tool calls</text>
+    <g>
+      <rect x="434" y="146" width="66" height="19" rx="9.5" fill="#0B2A2E" stroke="#1F5A57"/>
+      <text class="chip" x="467" y="159" text-anchor="middle">read</text>
+      <rect x="510" y="146" width="66" height="19" rx="9.5" fill="#0B2A2E" stroke="#1F5A57"/>
+      <text class="chip" x="543" y="159" text-anchor="middle">edit</text>
+      <rect x="434" y="172" width="66" height="19" rx="9.5" fill="#0B2A2E" stroke="#1F5A57"/>
+      <text class="chip" x="467" y="185" text-anchor="middle">shell</text>
+      <rect x="510" y="172" width="66" height="19" rx="9.5" fill="#0B2A2E" stroke="#1F5A57"/>
+      <text class="chip" x="543" y="185" text-anchor="middle">search</text>
+    </g>
+  </g>
+
+  <g class="m pop" style="animation-delay:.28s">
+    <rect x="638" y="112" width="150" height="86" rx="12" fill="url(#bx)" stroke="#5EEAD4" stroke-opacity="0.45"/>
+    <text class="t" x="713" y="146" text-anchor="middle">Observe</text>
+    <text class="s" x="713" y="166" text-anchor="middle">real output</text>
+    <text class="s" x="713" y="181" text-anchor="middle">not a claim</text>
+  </g>
+
+  <g class="m pop" style="animation-delay:.36s">
+    <ellipse cx="923" cy="155" rx="96" ry="62" fill="#0E7490" opacity="0.14" filter="url(#ah2)"/>
+    <rect x="830" y="106" width="186" height="98" rx="12" fill="url(#gate)" stroke="#34D399" stroke-opacity="0.55"/>
+    <circle cx="852" cy="134" r="4.5" fill="#34D399" class="br"/>
+    <text class="t" x="932" y="139" text-anchor="middle">Verify</text>
+    <text class="s" x="923" y="162" text-anchor="middle">tests run &#183; output read</text>
+    <text class="s" x="923" y="179" text-anchor="middle">second model argues back</text>
+  </g>
+
+  <g fill="none">
+    <path id="rp" d="M923 204 C923 250 700 252 500 252 C380 252 297 252 297 204"/>
+    <use xlink:href="#rp" href="#rp" stroke="#3A2E5C" stroke-width="2" marker-end="url(#arwr)"/>
+    <use xlink:href="#rp" href="#rp" stroke="#A78BFA" stroke-width="2" class="flow" opacity="0.75"/>
+    <circle r="3.4" fill="#C4B5FD" filter="url(#ag)"><animateMotion dur="3s" repeatCount="indefinite"><mpath xlink:href="#rp" href="#rp"/></animateMotion></circle>
+  </g>
+  <text class="m cap" x="610" y="270" text-anchor="middle">fails verification &#8594; revise the plan and run it again</text>
+
+  <line x1="24" y1="284" x2="1016" y2="284" stroke="#1B2733"/>
+  <text class="m cap" x="24" y="302">the verification step is the point. without it the loop just produces confident output faster.</text>
+</svg>
