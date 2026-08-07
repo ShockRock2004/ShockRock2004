@@ -35,42 +35,33 @@ I have production experience building real time voice systems, including live ca
 
 ## grindz
 
-My main project. A workout tracker shipped as a React Native Android app and an installable PWA against one Supabase backend.
+<table>
+<tr>
+<td width="270" valign="top">
+<img src="assets/grindz-app.png" alt="grindz running on Android" width="260" />
+</td>
+<td valign="top">
 
-<div align="center">
+A training log with a muscle map that shows exactly what you worked this week. Every muscle is shaded by what you actually trained, so a group you keep skipping is impossible to miss.
 
-<img src="assets/grindz.svg" alt="grindz — workout tracker on React Native, PWA and Supabase" width="100%" />
+Shipped as a React Native Android app and an installable PWA against one Supabase backend. Free, no ads.
 
-<br/>
-
-<a href="https://github.com/ShockRock2004/grindz">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/pin/?username=ShockRock2004&repo=grindz&hide_border=true&bg_color=0B0F14&title_color=22D3EE&icon_color=A78BFA&text_color=9FB3C8&border_radius=12" alt="grindz repository" />
-</a>
 <a href="https://grindz.dev">
   <img src="https://img.shields.io/badge/live_at-grindz.dev-34D399?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0B0F14" alt="grindz.dev" />
 </a>
+<a href="https://github.com/ShockRock2004/grindz">
+  <img src="https://img.shields.io/badge/source-github-22D3EE?style=for-the-badge&logo=github&logoColor=white&labelColor=0B0F14" alt="grindz source" />
+</a>
 
-</div>
-
-The engineering problem is not the workout log. It is keeping two very different clients honest against one schema, handling writes that happen with no signal, and getting a signed build onto a real device where the failure modes are nothing like a simulator.
-
----
-
-## How I build with models
-
-<div align="center">
-
-<img src="assets/agent-loop.svg" alt="Agentic loop: task, plan, tool calls, observe, verify, retry" width="100%" />
-
-</div>
-
-The interesting part is the gate at the end. A model that reports success is not evidence. A test that runs, or a second model arguing against the work, is.
+</td>
+</tr>
+</table>
 
 ---
 
-## Core CS foundations
+## Trying to learn
 
-Currently working through the fundamentals in parallel with building.
+Working through the fundamentals alongside building.
 
 <div align="center">
 
