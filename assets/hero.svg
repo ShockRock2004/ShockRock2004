@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="ShockRock2004. final year at IIT Madras. TypeScript. React Native. Supabase.">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="ShockRock2004. Final year at IIT Madras. Agentic AI, voice AI and telephony.">
   <title>ShockRock2004</title>
 
   <defs>
@@ -78,7 +78,7 @@
     </g>
 
     <g class="fadeUp" style="animation-delay:.1s">
-      <text class="mono" x="600" y="116" text-anchor="middle" font-size="13" letter-spacing="6.5" fill="#5EEAD4" opacity="0.7">SOFTWARE &#160;·&#160; MOBILE &#160;·&#160; AI TOOLING</text>
+      <text class="mono" x="600" y="116" text-anchor="middle" font-size="12.5" letter-spacing="5.5" fill="#5EEAD4" opacity="0.72">AGENTIC AI &#160;·&#160; VOICE AI &#160;·&#160; TELEPHONY</text>
     </g>
 
     <g class="fadeUp" style="animation-delay:.3s">
@@ -91,7 +91,7 @@
 
     <g class="fadeUp" style="animation-delay:.7s">
       <text class="mono" x="600" y="264" text-anchor="middle" font-size="17" fill="#93A5B8">
-        final year @ IIT Madras &#160;·&#160; TypeScript &#160;·&#160; React Native &#160;·&#160; Supabase
+        Final year at IIT Madras &#160;·&#160; LLM systems &#160;·&#160; real time voice &#160;·&#160; Python
       </text>
     </g>
 

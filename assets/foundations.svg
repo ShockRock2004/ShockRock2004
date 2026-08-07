@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="228" viewBox="0 0 1040 228" role="img" aria-label="Core computer science subjects currently being studied: system design, computer networks, operating systems, databases, and data structures with competitive programming">
+  <title>core CS foundations</title>
+
+  <defs>
+    <linearGradient id="cardg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111C26"/>
+      <stop offset="100%" stop-color="#0C141C"/>
+    </linearGradient>
+    <filter id="fg" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .m   { font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", Consolas, monospace; }
+      .hd  { font-size: 12px; fill: #8593A2; }
+      .t   { font-size: 12.5px; font-weight: 700; fill: #E6EDF3; }
+      .s   { font-size: 9.3px; fill: #6E7D8C; }
+      .cap { font-size: 10px; fill: #4C5966; }
+      .card { animation: fi .5s ease-out both; }
+      @keyframes fi { from { opacity:0; transform: translateY(8px);} to { opacity:1; transform: translateY(0);} }
+      .dot { animation: pu 2.8s ease-in-out infinite; }
+      @keyframes pu { 0%,100% { opacity:.35; } 50% { opacity:1; } }
+    </style>
+  </defs>
+
+  <rect width="1040" height="228" rx="14" fill="#0B0F14" stroke="#1B2733"/>
+  <text class="m hd" x="24" y="30">core CS foundations &#183; in progress</text>
+  <line x1="24" y1="44" x2="1016" y2="44" stroke="#1B2733"/>
+
+  <g class="m card" style="animation-delay:.05s">
+    <rect x="24" y="66" width="184" height="106" rx="12" fill="url(#cardg)" stroke="#22D3EE" stroke-opacity="0.38"/>
+    <circle cx="44" cy="90" r="4" fill="#22D3EE" class="dot" filter="url(#fg)"/>
+    <text class="t" x="58" y="94">System Design</text>
+    <text class="s" x="40" y="120">HLD &#183; LLD</text>
+    <text class="s" x="40" y="136">scaling &#183; trade offs</text>
+    <text class="s" x="40" y="152">design patterns</text>
+  </g>
+
+  <g class="m card" style="animation-delay:.13s">
+    <rect x="228" y="66" width="184" height="106" rx="12" fill="url(#cardg)" stroke="#38BDF8" stroke-opacity="0.38"/>
+    <circle cx="248" cy="90" r="4" fill="#38BDF8" class="dot" filter="url(#fg)" style="animation-delay:.4s"/>
+    <text class="t" x="262" y="94">Networking</text>
+    <text class="s" x="244" y="120">TCP/IP &#183; UDP</text>
+    <text class="s" x="244" y="136">HTTP &#183; DNS &#183; TLS</text>
+    <text class="s" x="244" y="152">sockets &#183; routing</text>
+  </g>
+
+  <g class="m card" style="animation-delay:.21s">
+    <rect x="432" y="66" width="184" height="106" rx="12" fill="url(#cardg)" stroke="#5EEAD4" stroke-opacity="0.38"/>
+    <circle cx="452" cy="90" r="4" fill="#5EEAD4" class="dot" filter="url(#fg)" style="animation-delay:.8s"/>
+    <text class="t" x="466" y="94">Operating Sys</text>
+    <text class="s" x="448" y="120">processes &#183; threads</text>
+    <text class="s" x="448" y="136">memory &#183; paging</text>
+    <text class="s" x="448" y="152">concurrency &#183; locks</text>
+  </g>
+
+  <g class="m card" style="animation-delay:.29s">
+    <rect x="636" y="66" width="184" height="106" rx="12" fill="url(#cardg)" stroke="#34D399" stroke-opacity="0.38"/>
+    <circle cx="656" cy="90" r="4" fill="#34D399" class="dot" filter="url(#fg)" style="animation-delay:1.2s"/>
+    <text class="t" x="670" y="94">DBMS</text>
+    <text class="s" x="652" y="120">indexing &#183; query plans</text>
+    <text class="s" x="652" y="136">transactions &#183; ACID</text>
+    <text class="s" x="652" y="152">normalisation &#183; SQL</text>
+  </g>
+
+  <g class="m card" style="animation-delay:.37s">
+    <rect x="840" y="66" width="176" height="106" rx="12" fill="url(#cardg)" stroke="#A78BFA" stroke-opacity="0.38"/>
+    <circle cx="860" cy="90" r="4" fill="#A78BFA" class="dot" filter="url(#fg)" style="animation-delay:1.6s"/>
+    <text class="t" x="874" y="94">DSA &#183; CP</text>
+    <text class="s" x="856" y="120">graphs &#183; DP &#183; trees</text>
+    <text class="s" x="856" y="136">complexity analysis</text>
+    <text class="s" x="856" y="152">contest practice</text>
+  </g>
+
+  <line x1="24" y1="192" x2="1016" y2="192" stroke="#1B2733"/>
+  <text class="m cap" x="24" y="212">studied alongside shipping. the fundamentals are what make the systems above hold up under load.</text>
+</svg>
