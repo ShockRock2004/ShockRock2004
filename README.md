@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/ShockRock2004/ShockRock2004/main/assets/hero.svg" alt="ShockRock2004 — agentic AI, voice AI and telephony" width="100%" />
+<img src="assets/hero.svg" alt="ShockRock2004 — agentic AI, voice AI and telephony" width="100%" />
 
 <br/>
 
@@ -39,7 +39,7 @@ The architecture I work in and keep rebuilding. The interesting engineering is n
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/ShockRock2004/ShockRock2004/main/assets/voice-pipeline.svg" alt="Real time voice agent pipeline with latency budget" width="100%" />
+<img src="assets/voice-pipeline.svg" alt="Real time voice agent pipeline with latency budget" width="100%" />
 
 </div>
 
@@ -53,7 +53,7 @@ Currently working through the fundamentals in parallel with building.
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/ShockRock2004/ShockRock2004/main/assets/foundations.svg" alt="System design, networking, operating systems, DBMS, DSA and competitive programming" width="100%" />
+<img src="assets/foundations.svg" alt="System design, networking, operating systems, DBMS, DSA and competitive programming" width="100%" />
 
 </div>
 
