@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/hero.svg" alt="ShockRock2004 — agentic AI, voice AI and telephony" width="100%" />
+<img src="assets/hero.svg?v=2" alt="ShockRock2004 — C++, JavaScript, Python; open to SDE roles, graduating 2027" width="100%" />
 
 <br/>
 
@@ -75,7 +75,7 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 
 <div align="center">
 
-<img src="assets/foundations.svg" alt="System design, networking, operating systems, DBMS, DSA and competitive programming" width="100%" />
+<img src="assets/foundations.svg?v=2" alt="Currently learning: system design, networking, operating systems, DBMS, DSA and competitive programming" width="100%" />
 
 </div>
 
