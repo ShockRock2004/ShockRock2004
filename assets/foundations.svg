@@ -24,7 +24,7 @@
   </defs>
 
   <rect width="1040" height="228" rx="14" fill="#0B0F14" stroke="#1B2733"/>
-  <text class="m hd" x="24" y="30">trying to learn &#183; alongside building</text>
+  <text class="m hd" x="24" y="30"><tspan fill="#34D399">~ $</tspan> currently learning</text>
   <line x1="24" y1="44" x2="1016" y2="44" stroke="#1B2733"/>
 
   <!-- System Design : stacked layers -->
@@ -92,14 +92,10 @@
   <!-- DSA + CP : binary tree -->
   <g class="m card" style="animation-delay:.37s">
     <rect x="840" y="66" width="176" height="106" rx="12" fill="url(#cardg)" stroke="#A78BFA" stroke-opacity="0.38"/>
-    <g class="ic" transform="translate(856,82)" stroke="#A78BFA" stroke-width="1.5" filter="url(#ig)" style="animation-delay:2s">
-      <line x1="9" y1="4" x2="4" y2="12"/>
-      <line x1="9" y1="4" x2="14" y2="12"/>
-      <circle cx="9"  cy="3"  r="2.4" fill="#0B0F14"/>
-      <circle cx="4"  cy="13" r="2.4" fill="#0B0F14"/>
-      <circle cx="14" cy="13" r="2.4" fill="#0B0F14"/>
+    <g class="ic" transform="translate(856,82)" filter="url(#ig)" style="animation-delay:2s">
+      <text class="m" x="0" y="13" font-size="12.5" font-weight="700" fill="#A78BFA">&lt;/&gt;</text>
     </g>
-    <text class="t" x="882" y="95">DSA &#183; CP</text>
+    <text class="t" x="890" y="95">DSA &#183; CP</text>
     <text class="s" x="856" y="122">graphs &#183; DP &#183; trees</text>
     <text class="s" x="856" y="138">complexity analysis</text>
     <text class="s" x="856" y="154">contest practice</text>

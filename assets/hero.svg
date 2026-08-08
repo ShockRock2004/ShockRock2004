@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-label="ShockRock2004. Agentic AI, voice AI and LLM systems. Final year at IIT Madras. Open to SDE roles, graduating 2027.">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-label="ShockRock2004. Agentic AI, voice AI and LLM systems. Undergraduate at IIT Madras. Open to SDE roles, graduating 2027.">
   <title>ShockRock2004</title>
 
   <defs>
@@ -34,6 +34,7 @@
       #hello g { animation-duration: 22.400000000000002s; animation-timing-function: steps(1, end);
                  animation-iteration-count: infinite; }
       .blink { animation: blink .9s steps(1, end) infinite !important; }
+      .caret { animation: blink .9s steps(1, end) infinite; }
       @keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: .12; } }
 
       @keyframes c0_0 { 0%{opacity:0} 0.0%{opacity:1} 12.277%{opacity:0} 100%{opacity:0} }
@@ -221,14 +222,17 @@
 
   <line x1="40" y1="68" x2="1160" y2="68" stroke="#16202B"/>
 
-  <!-- wordmark -->
+  <!-- wordmark, framed as a shell line. the caret is a tspan inside the same
+       <text> so it tracks the wordmark's width across monospace stacks rather
+       than sitting at a hardcoded x that only lines up in one font. -->
   <g class="in" style="animation-delay:.08s">
-    <text class="mono" x="40" y="142" font-size="52" font-weight="700" letter-spacing="-1" fill="#E6EDF3">ShockRock<tspan fill="#22D3EE">2004</tspan></text>
-    <rect x="40" y="160" width="56" height="3" rx="1.5" fill="#22D3EE"/>
+    <text class="mono" x="40" y="142" font-size="20" fill="#34D399">~ $</text>
+    <text class="mono" x="100" y="142" font-size="50" font-weight="700" letter-spacing="-1" fill="#E6EDF3">ShockRock<tspan fill="#22D3EE">2004</tspan><tspan class="caret" fill="#22D3EE"> _</tspan></text>
+    <rect x="100" y="160" width="56" height="3" rx="1.5" fill="#22D3EE"/>
   </g>
 
   <g class="in" style="animation-delay:.16s">
-    <text class="mono lede" x="40" y="192">final year at IIT Madras &#160;&#183;&#160; agentic systems and real time voice</text>
+    <text class="mono lede" x="40" y="192">undergraduate at IIT Madras &#160;&#183;&#160; agentic systems and real time voice</text>
   </g>
 
   <!-- spec strip -->

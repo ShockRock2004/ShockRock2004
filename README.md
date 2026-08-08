@@ -15,21 +15,11 @@
 
 ## About
 
-Final year undergraduate at IIT Madras, working on systems that put language models to real work rather than demos.
+Undergraduate engineering student at IIT Madras passionate about problem solving and software architecture. Fluent in C++ and JavaScript. Currently building real time voice systems where an AI agent has to hold a conversation on a live phone call.
 
-Most of my time goes to two things. Building agentic workflows where a model has tools, state and a verification loop instead of a single prompt. And real time voice, where a model has to hold a conversation inside a latency budget that does not forgive mistakes.
+I have production experience with live call audio pipelines that feed AI agents inside a latency budget that does not forgive mistakes. Alongside that I build agentic workflows where a model gets tools and state and a verification step rather than a single prompt. Most of that work sits in private repositories so this profile shows the public side.
 
-I have production experience building real time voice systems, including live call audio pipelines that feed AI agents. That work sits in private repositories, so this profile shows the public side.
-
----
-
-## Focus areas
-
-| Area | What that means in practice |
-|---|---|
-| **Agentic AI workflows** | Giving models tools, memory and a verification step. Making the loop reliable enough that the output can be trusted without reading every line. |
-| **Voice AI** | Streaming speech pipelines for real time conversation. Turn detection, interruption handling, and keeping response latency low enough to feel natural. |
-| **Applying LLMs to real problems** | Evaluating where automation actually holds up, and where it quietly fails. Building the harness before trusting the model. |
+**Open to SDE roles.**
 
 ---
 
@@ -68,7 +58,7 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 
 ---
 
-## Trying to learn
+## Currently learning
 
 Working through the fundamentals alongside building.
 
@@ -104,25 +94,6 @@ Working through the fundamentals alongside building.
 
 ---
 
-## Other work
-
-<div align="center">
-
-<a href="https://github.com/ShockRock2004/kamar-taj">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/pin/?username=ShockRock2004&repo=kamar-taj&hide_border=true&bg_color=0B0F14&title_color=22D3EE&icon_color=A78BFA&text_color=9FB3C8&border_radius=12" alt="kamar-taj repository" />
-</a>
-<a href="https://github.com/ShockRock2004/Lodestar">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/pin/?username=ShockRock2004&repo=Lodestar&hide_border=true&bg_color=0B0F14&title_color=22D3EE&icon_color=A78BFA&text_color=9FB3C8&border_radius=12" alt="Lodestar repository" />
-</a>
-
-</div>
-
-**kamar-taj** is agent tooling for Claude Code. Three skills aimed at a specific failure mode: one turns a day of AI assisted work into a readable study guide, one refuses to call a bug fixed until it has watched the test pass, and one sends the work to a second model to argue against it. Starred by developers outside my network.
-
-**Lodestar** is a study tracking system with a React and Vite dashboard plus an Expo Android client on a shared Supabase backend.
-
----
-
 ## Activity
 
 <div align="center">
@@ -138,6 +109,10 @@ Working through the fundamentals alongside building.
 <br/><br/>
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=ShockRock2004&bg_color=0B0F14&color=9FB3C8&line=22D3EE&point=A78BFA&area=true&area_color=22D3EE&hide_border=true&custom_title=commits%20over%20time" alt="commit activity" width="100%" />
+
+<br/><br/>
+
+<img src="https://raw.githubusercontent.com/ShockRock2004/ShockRock2004/output/snake.svg" alt="contribution snake" width="100%" />
 
 </div>
 
