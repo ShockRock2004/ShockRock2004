@@ -6,7 +6,7 @@
 
 <img src="https://img.shields.io/badge/IIT_Madras-final_year-A78BFA?style=flat-square&labelColor=0B0F14" alt="IIT Madras final year" />
 <img src="https://img.shields.io/badge/focus-agentic_AI_&_voice-22D3EE?style=flat-square&labelColor=0B0F14" alt="focus" />
-<img src="https://img.shields.io/github/stars/ShockRock2004/grindz?style=flat-square&logo=github&label=grindz&color=5EEAD4&labelColor=0B0F14" alt="grindz stars" />
+<img src="https://img.shields.io/github/stars/ShockRock2004/grindz?style=flat-square&logo=github&label=Grindz&color=5EEAD4&labelColor=0B0F14" alt="Grindz stars" />
 <img src="https://img.shields.io/badge/open_to-SDE_roles_2027-34D399?style=flat-square&labelColor=0B0F14" alt="open to SDE roles 2027" />
 
 </div>
@@ -36,12 +36,12 @@ Lately, I've been exploring agentic AI and practical LLM applications to solve r
 
 ---
 
-## grindz
+## Grindz
 
 <table>
 <tr>
 <td width="260" valign="top">
-<img src="assets/grindz-home.png" alt="grindz home screen on Android" width="250" />
+<img src="assets/grindz-home.png" alt="Grindz home screen on Android" width="250" />
 </td>
 <td valign="top">
 
@@ -61,7 +61,7 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 
 <p>
   <a href="https://grindz.dev"><img src="https://img.shields.io/badge/live_at-grindz.dev-34D399?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0B0F14" alt="grindz.dev" /></a>
-  <a href="https://github.com/ShockRock2004/grindz"><img src="https://img.shields.io/badge/source-github-22D3EE?style=for-the-badge&logo=github&logoColor=white&labelColor=0B0F14" alt="grindz source" /></a>
+  <a href="https://github.com/ShockRock2004/grindz"><img src="https://img.shields.io/badge/source-github-22D3EE?style=for-the-badge&logo=github&logoColor=white&labelColor=0B0F14" alt="Grindz source" /></a>
   <a href="https://github.com/ShockRock2004/grindz/releases/latest"><img src="https://img.shields.io/badge/download-APK-A78BFA?style=for-the-badge&logo=android&logoColor=white&labelColor=0B0F14" alt="download APK" /></a>
 </p>
 
