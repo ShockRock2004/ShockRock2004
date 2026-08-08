@@ -1,105 +1,118 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="ShockRock2004. Final year at IIT Madras. Agentic AI, voice AI and telephony.">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-label="ShockRock2004. Agentic AI, voice AI and LLM systems. Final year at IIT Madras. Open to SDE roles, graduating 2026.">
   <title>ShockRock2004</title>
 
   <defs>
-    <linearGradient id="wordmark" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#7DD3FC"/>
-      <stop offset="100%" stop-color="#A78BFA"/>
+    <linearGradient id="wave" x1="768" y1="0" x2="1160" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#22D3EE" stop-opacity="0.10"/>
+      <stop offset="45%"  stop-color="#22D3EE" stop-opacity="0.46"/>
+      <stop offset="80%"  stop-color="#22D3EE" stop-opacity="0.70"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0.24"/>
     </linearGradient>
-
-    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#7DD3FC" stop-opacity="0"/>
-      <stop offset="50%"  stop-color="#7DD3FC" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/>
-    </linearGradient>
-
-    <radialGradient id="vig" cx="50%" cy="45%" r="72%">
-      <stop offset="55%"  stop-color="#0B0F14" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#04070A" stop-opacity="0.95"/>
-    </radialGradient>
-
-    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="52"/>
-    </filter>
-
-    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
-      <path d="M44 0H0V44" fill="none" stroke="#16303E" stroke-width="1"/>
-    </pattern>
-
-    <clipPath id="frame">
-      <rect x="0" y="0" width="1200" height="340" rx="18"/>
-    </clipPath>
 
     <style>
       .sans { font-family: "Inter", "Segoe UI Variable Display", "Segoe UI", -apple-system,
               BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif; }
       .mono { font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", Consolas, monospace; }
 
-      .drift  { animation: drift 22s linear infinite; }
-      @keyframes drift { to { transform: translate(-44px, -44px); } }
+      .kicker { font-size: 11.5px; letter-spacing: 3px; fill: #55636F; }
+      .status { font-size: 10.5px; letter-spacing: 1.6px; fill: #34D399; }
+      .lede   { font-size: 14px; fill: #7C8B9A; }
+      .lbl    { font-size: 9.5px; letter-spacing: 2px; fill: #46525E; }
+      .val    { font-size: 12.5px; fill: #C6D2DE; }
 
-      .blobA { animation: blobA 16s ease-in-out infinite; }
-      .blobB { animation: blobB 19s ease-in-out infinite; }
-      @keyframes blobA { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(70px,20px) scale(1.12); } }
-      @keyframes blobB { 0%,100% { transform: translate(0,0) scale(1.08); } 50% { transform: translate(-84px,-24px) scale(0.94); } }
-
-      /* base state is the finished state. animation runs FROM hidden via fill-mode both,
+      /* base state is the finished state. animations run FROM hidden via fill-mode both,
          so a renderer that ignores CSS animation still shows a complete banner. */
-      .brk { stroke-dasharray: 120; animation: draw 2.2s ease-out both; }
-      @keyframes draw { from { stroke-dashoffset: 120; } to { stroke-dashoffset: 0; } }
+      .in { animation: in .7s cubic-bezier(.2,.7,.3,1) both; }
+      @keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
-      .fadeUp { animation: fadeUp .9s ease-out both; }
-      @keyframes fadeUp { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+      .dot { animation: dot 2.8s ease-in-out infinite; }
+      @keyframes dot { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
 
-      .pulse { animation: pulse 2.6s ease-in-out infinite; }
-      @keyframes pulse { 0%,100% { opacity:.35; } 50% { opacity:1; } }
+      .b { transform-box: fill-box; transform-origin: center; }
+      .w1 { animation: w1 1.6s ease-in-out infinite alternate; }
+      .w2 { animation: w2 1.6s ease-in-out infinite alternate; }
+      .w3 { animation: w3 1.6s ease-in-out infinite alternate; }
+      .w4 { animation: w4 1.6s ease-in-out infinite alternate; }
+      @keyframes w1 { to { transform: scaleY(.42); } }
+      @keyframes w2 { to { transform: scaleY(1.45); } }
+      @keyframes w3 { to { transform: scaleY(.65); } }
+      @keyframes w4 { to { transform: scaleY(1.22); } }
     </style>
   </defs>
 
-  <g clip-path="url(#frame)">
-    <rect width="1200" height="340" fill="#0B0F14"/>
+  <rect x="0.5" y="0.5" width="1199" height="279" rx="14" fill="#0B0F14" stroke="#1B2733"/>
 
-    <g opacity="0.4">
-      <ellipse class="blobA" cx="300" cy="130" rx="200" ry="130" fill="#0E7490" filter="url(#soft)"/>
-      <ellipse class="blobB" cx="920" cy="220" rx="220" ry="140" fill="#4C1D95" filter="url(#soft)"/>
-    </g>
-
-    <g class="drift" opacity="0.22">
-      <rect x="-44" y="-44" width="1288" height="428" fill="url(#grid)"/>
-    </g>
-
-    <rect width="1200" height="340" fill="url(#vig)"/>
-
-    <g fill="none" stroke="#22D3EE" stroke-width="1.5" opacity="0.45">
-      <path class="brk" d="M34 92 V34 H92"/>
-      <path class="brk" d="M1166 92 V34 H1108"/>
-      <path class="brk" d="M34 248 V306 H92"/>
-      <path class="brk" d="M1166 248 V306 H1108"/>
-    </g>
-
-    <g class="fadeUp" style="animation-delay:.1s">
-      <text class="mono" x="600" y="116" text-anchor="middle" font-size="12.5" letter-spacing="5.5" fill="#5EEAD4" opacity="0.72">AGENTIC AI &#160;·&#160; VOICE AI &#160;·&#160; TELEPHONY</text>
-    </g>
-
-    <g class="fadeUp" style="animation-delay:.3s">
-      <text class="sans" x="600" y="200" text-anchor="middle" font-size="78" font-weight="700" letter-spacing="-2" fill="url(#wordmark)">ShockRock2004</text>
-    </g>
-
-    <g class="fadeUp" style="animation-delay:.5s">
-      <rect x="428" y="224" width="344" height="2" rx="1" fill="url(#rule)"/>
-    </g>
-
-    <g class="fadeUp" style="animation-delay:.7s">
-      <text class="mono" x="600" y="264" text-anchor="middle" font-size="17" fill="#93A5B8">
-        Final year at IIT Madras &#160;·&#160; LLM systems &#160;·&#160; real time voice &#160;·&#160; Python
-      </text>
-    </g>
-
-    <g class="fadeUp" style="animation-delay:.9s">
-      <circle cx="516" cy="294" r="4" fill="#34D399" class="pulse"/>
-      <text class="mono" x="530" y="299" font-size="13.5" fill="#6E7B8B">open to SDE roles &#160;·&#160; 2026</text>
-    </g>
+  <!-- waveform : real time voice -->
+  <g fill="url(#wave)">
+    <rect class="b w1" x="768"  y="129" width="3" height="6"  rx="1.5" style="animation-delay:0s"/>
+    <rect class="b w2" x="782"  y="125" width="3" height="14" rx="1.5" style="animation-delay:.07s"/>
+    <rect class="b w3" x="796"  y="119" width="3" height="26" rx="1.5" style="animation-delay:.14s"/>
+    <rect class="b w4" x="810"  y="110" width="3" height="44" rx="1.5" style="animation-delay:.21s"/>
+    <rect class="b w1" x="824"  y="117" width="3" height="30" rx="1.5" style="animation-delay:.28s"/>
+    <rect class="b w2" x="838"  y="123" width="3" height="18" rx="1.5" style="animation-delay:.35s"/>
+    <rect class="b w3" x="852"  y="106" width="3" height="52" rx="1.5" style="animation-delay:.42s"/>
+    <rect class="b w4" x="866"  y="98" width="3" height="68" rx="1.5" style="animation-delay:.49s"/>
+    <rect class="b w1" x="880"  y="112" width="3" height="40" rx="1.5" style="animation-delay:.56s"/>
+    <rect class="b w2" x="894"  y="121" width="3" height="22" rx="1.5" style="animation-delay:.63s"/>
+    <rect class="b w3" x="908"  y="126" width="3" height="12" rx="1.5" style="animation-delay:.70s"/>
+    <rect class="b w4" x="922"  y="115" width="3" height="34" rx="1.5" style="animation-delay:.77s"/>
+    <rect class="b w1" x="936"  y="103" width="3" height="58" rx="1.5" style="animation-delay:.84s"/>
+    <rect class="b w2" x="950"  y="94" width="3" height="76" rx="1.5" style="animation-delay:.91s"/>
+    <rect class="b w3" x="964"  y="108" width="3" height="48" rx="1.5" style="animation-delay:.98s"/>
+    <rect class="b w4" x="978"  y="119" width="3" height="26" rx="1.5" style="animation-delay:1.05s"/>
+    <rect class="b w1" x="992"  y="125" width="3" height="14" rx="1.5" style="animation-delay:1.12s"/>
+    <rect class="b w2" x="1006" y="117" width="3" height="30" rx="1.5" style="animation-delay:1.19s"/>
+    <rect class="b w3" x="1020" y="101" width="3" height="62" rx="1.5" style="animation-delay:1.26s"/>
+    <rect class="b w4" x="1034" y="110" width="3" height="44" rx="1.5" style="animation-delay:1.33s"/>
+    <rect class="b w1" x="1048" y="120" width="3" height="24" rx="1.5" style="animation-delay:1.40s"/>
+    <rect class="b w2" x="1062" y="124" width="3" height="16" rx="1.5" style="animation-delay:1.47s"/>
+    <rect class="b w3" x="1076" y="113" width="3" height="38" rx="1.5" style="animation-delay:1.54s"/>
+    <rect class="b w4" x="1090" y="105" width="3" height="54" rx="1.5" style="animation-delay:1.61s"/>
+    <rect class="b w1" x="1104" y="116" width="3" height="32" rx="1.5" style="animation-delay:1.68s"/>
+    <rect class="b w2" x="1118" y="122" width="3" height="20" rx="1.5" style="animation-delay:1.75s"/>
+    <rect class="b w3" x="1132" y="127" width="3" height="10" rx="1.5" style="animation-delay:1.82s"/>
+    <rect class="b w4" x="1146" y="129" width="3" height="6"  rx="1.5" style="animation-delay:1.89s"/>
   </g>
 
-  <rect x="0.5" y="0.5" width="1199" height="339" rx="18" fill="none" stroke="#1F2D3D" stroke-width="1"/>
+  <!-- top strip -->
+  <g class="in">
+    <text class="mono kicker" x="40" y="45">AGENTIC AI &#160;&#183;&#160; VOICE AI &#160;&#183;&#160; LLM SYSTEMS</text>
+
+    <rect x="1006" y="28" width="154" height="26" rx="13" fill="#0C1A17" stroke="#1E3A34"/>
+    <circle class="dot" cx="1026" cy="41" r="3.5" fill="#34D399"/>
+    <text class="mono status" x="1040" y="45">OPEN TO WORK</text>
+  </g>
+
+  <line x1="40" y1="68" x2="1160" y2="68" stroke="#16202B"/>
+
+  <!-- wordmark -->
+  <g class="in" style="animation-delay:.08s">
+    <text class="sans" x="40" y="142" font-size="60" font-weight="700" letter-spacing="-1.5" fill="#E6EDF3">ShockRock<tspan fill="#22D3EE">2004</tspan></text>
+    <rect x="40" y="160" width="56" height="3" rx="1.5" fill="#22D3EE"/>
+  </g>
+
+  <g class="in" style="animation-delay:.16s">
+    <text class="mono lede" x="40" y="192">final year at IIT Madras &#160;&#183;&#160; agentic systems and real time voice</text>
+  </g>
+
+  <!-- spec strip -->
+  <line x1="40" y1="218" x2="1160" y2="218" stroke="#16202B"/>
+
+  <g class="in" style="animation-delay:.24s">
+    <line x1="305" y1="226" x2="305" y2="264" stroke="#16202B"/>
+    <line x1="595" y1="226" x2="595" y2="264" stroke="#16202B"/>
+    <line x1="885" y1="226" x2="885" y2="264" stroke="#16202B"/>
+
+    <text class="mono lbl" x="40"  y="238">STACK</text>
+    <text class="mono val" x="40"  y="257">Python &#183; TypeScript &#183; C++</text>
+
+    <text class="mono lbl" x="330" y="238">SHIPPED</text>
+    <text class="mono val" x="330" y="257">grindz.dev &#183; kamar-taj</text>
+
+    <text class="mono lbl" x="620" y="238">LEARNING</text>
+    <text class="mono val" x="620" y="257">systems &#183; networks &#183; DSA</text>
+
+    <text class="mono lbl" x="910" y="238">GRADUATING</text>
+    <text class="mono val" x="910" y="257">2026</text>
+  </g>
 </svg>

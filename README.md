@@ -6,7 +6,7 @@
 
 <img src="https://img.shields.io/badge/IIT_Madras-final_year-A78BFA?style=flat-square&labelColor=0B0F14" alt="IIT Madras final year" />
 <img src="https://img.shields.io/badge/focus-agentic_AI_&_voice-22D3EE?style=flat-square&labelColor=0B0F14" alt="focus" />
-<img src="https://img.shields.io/github/stars/ShockRock2004/kamar-taj?style=flat-square&logo=github&label=kamar-taj&color=5EEAD4&labelColor=0B0F14" alt="kamar-taj stars" />
+<img src="https://img.shields.io/github/stars/ShockRock2004/grindz?style=flat-square&logo=github&label=grindz&color=5EEAD4&labelColor=0B0F14" alt="grindz stars" />
 <img src="https://img.shields.io/badge/open_to-SDE_roles_2026-34D399?style=flat-square&labelColor=0B0F14" alt="open to SDE roles 2026" />
 
 </div>
@@ -37,21 +37,30 @@ I have production experience building real time voice systems, including live ca
 
 <table>
 <tr>
-<td width="270" valign="top">
-<img src="assets/grindz-app.png" alt="grindz running on Android" width="260" />
+<td width="260" valign="top">
+<img src="assets/grindz-home.png" alt="grindz home screen on Android" width="250" />
 </td>
 <td valign="top">
 
-A training log with a muscle map that shows exactly what you worked this week. Every muscle is shaded by what you actually trained, so a group you keep skipping is impossible to miss.
+A training log with a muscle map that shows exactly what you worked this week. Every muscle is shaded by what you actually trained so a group you keep skipping is impossible to miss.
 
-Shipped as a React Native Android app and an installable PWA against one Supabase backend. Free, no ads.
+Shipped as a React Native Android app and an installable PWA against one Supabase backend. Free and no ads.
 
-<a href="https://grindz.dev">
-  <img src="https://img.shields.io/badge/live_at-grindz.dev-34D399?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0B0F14" alt="grindz.dev" />
-</a>
-<a href="https://github.com/ShockRock2004/grindz">
-  <img src="https://img.shields.io/badge/source-github-22D3EE?style=for-the-badge&logo=github&logoColor=white&labelColor=0B0F14" alt="grindz source" />
-</a>
+- **Muscle heat map.** Traced vector figures with every muscle individually addressable. Shaded by what you actually hit this week.
+- **Progression memory.** Last time and your best sit right where you are about to type. PRs get detected as they happen.
+- **Live sessions.** Sets as kg by reps with a running timer. RPE captured on the set you just finished.
+- **16 week history.** Streaks and a contribution style heatmap so a skipped week has nowhere to hide.
+- **Two clients one backend.** Android APK and an installable PWA against the same Supabase schema.
+
+<p>
+  <img src="https://skillicons.dev/icons?i=react,ts,supabase,vite,tailwind,cloudflare,androidstudio&theme=dark" alt="React, TypeScript, Supabase, Vite, Tailwind, Cloudflare, Android Studio" height="42" />
+</p>
+
+<p>
+  <a href="https://grindz.dev"><img src="https://img.shields.io/badge/live_at-grindz.dev-34D399?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0B0F14" alt="grindz.dev" /></a>
+  <a href="https://github.com/ShockRock2004/grindz"><img src="https://img.shields.io/badge/source-github-22D3EE?style=for-the-badge&logo=github&logoColor=white&labelColor=0B0F14" alt="grindz source" /></a>
+  <a href="https://github.com/ShockRock2004/grindz/releases/latest"><img src="https://img.shields.io/badge/download-APK-A78BFA?style=for-the-badge&logo=android&logoColor=white&labelColor=0B0F14" alt="download APK" /></a>
+</p>
 
 </td>
 </tr>
