@@ -1,18 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="112" viewBox="0 0 1040 112" role="img" aria-label="Currently learning: system design, computer networks, operating systems, databases, and data structures with competitive programming">
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="92" viewBox="0 0 1040 92" role="img" aria-label="Currently learning: system design, networking, operating systems, databases, and data structures with competitive programming">
   <title>currently learning</title>
 
   <defs>
+    <!-- The icon well carries the same LED texture as the hero panel, so the
+         two graphics read as one instrument rather than two unrelated widgets. -->
+    <pattern id="well" width="3" height="3" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="0.55" fill="#21394C"/>
+    </pattern>
+
     <style>
       .m { font-family: ui-monospace, "Cascadia Mono", "Cascadia Code", "JetBrains Mono",
            "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; }
-
       .t { font-size: 12.5px; font-weight: 700; fill: #E9F0F6; }
-      .s { font-size: 10.5px; fill: #93A5B5; }
 
       /* base state is the finished state, so a renderer that ignores CSS
-         animation still shows every card */
+         animation still shows every tile */
       .card { animation: rise .5s cubic-bezier(.2,.7,.3,1) both; }
-      @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+      @keyframes rise { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 
       @media (prefers-reduced-motion: reduce) {
         .card { animation: none; }
@@ -20,49 +24,41 @@
     </style>
   </defs>
 
-  <!-- Each card is an accent rail with the body panel laid over it, so the rail
-       reads as a 3px cap with corners that match the card radius. No clip path
-       needed, and the colour identity survives at any scale unlike a tinted
-       low-alpha outline. -->
-
   <!-- System Design -->
   <g class="card" style="animation-delay:.02s">
-    <rect x="0" y="0" width="195" height="14" rx="10" fill="#22D3EE"/>
-    <rect x="0.5" y="3.5" width="194" height="108" rx="10" fill="#141E28" stroke="#2A3A49"/>
-    <g transform="translate(16,21)" fill="none" stroke="#22D3EE" stroke-width="1.7" stroke-linejoin="round">
+    <rect x="0.5" y="0.5" width="194" height="91" rx="10" fill="#0F1821" stroke="#1E2C38"/>
+    <rect x="77.5" y="16" width="40" height="40" rx="10" fill="#152534" stroke="#2E4A61"/>
+    <rect x="77.5" y="16" width="40" height="40" rx="10" fill="url(#well)"/>
+    <g transform="translate(88.5,27)" fill="none" stroke="#38BDF8" stroke-width="1.7" stroke-linejoin="round">
       <path d="M0 5 L8 1 L16 5 L8 9 Z"/>
       <path d="M0 9.5 L8 13.5 L16 9.5"/>
       <path d="M0 13.5 L8 17.5 L16 13.5"/>
     </g>
-    <text class="m t" x="44" y="34">System Design</text>
-    <text class="m s" x="16" y="62">HLD &#183; LLD</text>
-    <text class="m s" x="16" y="78">scaling &#183; trade offs</text>
-    <text class="m s" x="16" y="94">design patterns</text>
+    <text class="m t" x="97.5" y="76" text-anchor="middle">System Design</text>
   </g>
 
   <!-- Networking -->
   <g class="card" style="animation-delay:.08s">
-    <rect x="211" y="0" width="195" height="14" rx="10" fill="#38BDF8"/>
-    <rect x="211.5" y="3.5" width="194" height="108" rx="10" fill="#141E28" stroke="#2A3A49"/>
-    <g transform="translate(227,21)" stroke="#38BDF8" stroke-width="1.6">
+    <rect x="211.5" y="0.5" width="194" height="91" rx="10" fill="#0F1821" stroke="#1E2C38"/>
+    <rect x="288.5" y="16" width="40" height="40" rx="10" fill="#152534" stroke="#2E4A61"/>
+    <rect x="288.5" y="16" width="40" height="40" rx="10" fill="url(#well)"/>
+    <g transform="translate(299.5,27)" stroke="#38BDF8" stroke-width="1.6">
       <line x1="4" y1="5" x2="14" y2="5"/>
       <line x1="4" y1="5" x2="9" y2="15"/>
       <line x1="14" y1="5" x2="9" y2="15"/>
-      <circle cx="4"  cy="5"  r="2.7" fill="#141E28"/>
-      <circle cx="14" cy="5"  r="2.7" fill="#141E28"/>
-      <circle cx="9"  cy="15" r="2.7" fill="#141E28"/>
+      <circle cx="4"  cy="5"  r="2.7" fill="#152534"/>
+      <circle cx="14" cy="5"  r="2.7" fill="#152534"/>
+      <circle cx="9"  cy="15" r="2.7" fill="#152534"/>
     </g>
-    <text class="m t" x="255" y="34">Networking</text>
-    <text class="m s" x="227" y="62">TCP/IP &#183; UDP</text>
-    <text class="m s" x="227" y="78">HTTP &#183; DNS &#183; TLS</text>
-    <text class="m s" x="227" y="94">sockets &#183; routing</text>
+    <text class="m t" x="308.5" y="76" text-anchor="middle">Networking</text>
   </g>
 
   <!-- Operating Systems -->
   <g class="card" style="animation-delay:.14s">
-    <rect x="422" y="0" width="195" height="14" rx="10" fill="#5EEAD4"/>
-    <rect x="422.5" y="3.5" width="194" height="108" rx="10" fill="#141E28" stroke="#2A3A49"/>
-    <g transform="translate(438,21)" fill="none" stroke="#5EEAD4" stroke-width="1.6">
+    <rect x="422.5" y="0.5" width="194" height="91" rx="10" fill="#0F1821" stroke="#1E2C38"/>
+    <rect x="499.5" y="16" width="40" height="40" rx="10" fill="#152534" stroke="#2E4A61"/>
+    <rect x="499.5" y="16" width="40" height="40" rx="10" fill="url(#well)"/>
+    <g transform="translate(510.5,27)" fill="none" stroke="#38BDF8" stroke-width="1.6">
       <rect x="3.5" y="3.5" width="11" height="11" rx="2"/>
       <rect x="7" y="7" width="4" height="4" rx="1"/>
       <line x1="6" y1="0.5" x2="6" y2="3.5"/><line x1="12" y1="0.5" x2="12" y2="3.5"/>
@@ -70,35 +66,28 @@
       <line x1="0.5" y1="6" x2="3.5" y2="6"/><line x1="0.5" y1="12" x2="3.5" y2="12"/>
       <line x1="14.5" y1="6" x2="17.5" y2="6"/><line x1="14.5" y1="12" x2="17.5" y2="12"/>
     </g>
-    <text class="m t" x="466" y="34">Operating Sys</text>
-    <text class="m s" x="438" y="62">processes &#183; threads</text>
-    <text class="m s" x="438" y="78">memory &#183; paging</text>
-    <text class="m s" x="438" y="94">concurrency &#183; locks</text>
+    <text class="m t" x="519.5" y="76" text-anchor="middle">Operating Systems</text>
   </g>
 
   <!-- DBMS -->
   <g class="card" style="animation-delay:.20s">
-    <rect x="633" y="0" width="195" height="14" rx="10" fill="#34D399"/>
-    <rect x="633.5" y="3.5" width="194" height="108" rx="10" fill="#141E28" stroke="#2A3A49"/>
-    <g transform="translate(649,21)" fill="none" stroke="#34D399" stroke-width="1.6">
+    <rect x="633.5" y="0.5" width="194" height="91" rx="10" fill="#0F1821" stroke="#1E2C38"/>
+    <rect x="710.5" y="16" width="40" height="40" rx="10" fill="#152534" stroke="#2E4A61"/>
+    <rect x="710.5" y="16" width="40" height="40" rx="10" fill="url(#well)"/>
+    <g transform="translate(721.5,27)" fill="none" stroke="#38BDF8" stroke-width="1.6">
       <ellipse cx="9" cy="4" rx="7" ry="2.8"/>
       <path d="M2 4 V14 C2 15.5 5.2 16.8 9 16.8 C12.8 16.8 16 15.5 16 14 V4"/>
       <path d="M2 9 C2 10.5 5.2 11.8 9 11.8 C12.8 11.8 16 10.5 16 9"/>
     </g>
-    <text class="m t" x="677" y="34">DBMS</text>
-    <text class="m s" x="649" y="62">indexing &#183; query plans</text>
-    <text class="m s" x="649" y="78">transactions &#183; ACID</text>
-    <text class="m s" x="649" y="94">normalisation &#183; SQL</text>
+    <text class="m t" x="730.5" y="76" text-anchor="middle">DBMS</text>
   </g>
 
   <!-- DSA and competitive programming -->
   <g class="card" style="animation-delay:.26s">
-    <rect x="844" y="0" width="195" height="14" rx="10" fill="#A78BFA"/>
-    <rect x="844.5" y="3.5" width="194" height="108" rx="10" fill="#141E28" stroke="#2A3A49"/>
-    <text class="m" x="860" y="35" font-size="15" font-weight="700" fill="#A78BFA">&lt;/&gt;</text>
-    <text class="m t" x="895" y="34">DSA &#183; CP</text>
-    <text class="m s" x="860" y="62">graphs &#183; DP &#183; trees</text>
-    <text class="m s" x="860" y="78">complexity analysis</text>
-    <text class="m s" x="860" y="94">contest practice</text>
+    <rect x="844.5" y="0.5" width="194" height="91" rx="10" fill="#0F1821" stroke="#1E2C38"/>
+    <rect x="921.5" y="16" width="40" height="40" rx="10" fill="#152534" stroke="#2E4A61"/>
+    <rect x="921.5" y="16" width="40" height="40" rx="10" fill="url(#well)"/>
+    <text class="m" x="941.5" y="41" text-anchor="middle" font-size="14.5" font-weight="700" fill="#38BDF8">&lt;/&gt;</text>
+    <text class="m t" x="941.5" y="76" text-anchor="middle">DSA &#183; CP</text>
   </g>
 </svg>
