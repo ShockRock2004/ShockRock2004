@@ -119,8 +119,14 @@ def keyframe(name, stops):
     clean = []
     for t, v in stops:
         if clean and t <= clean[-1][0]:
-            continue
-        clean.append((t, v))
+            # same offset after rounding: the later value wins. dropping it
+            # instead silently deletes the turn-on stop for anything starting
+            # at t=0, which is how the first glyph of the first word went dark.
+            clean[-1] = (clean[-1][0], v)
+        else:
+            clean.append((t, v))
+    if not any(v for _, v in clean):
+        raise SystemExit(f"{name} never becomes visible: {stops}")
     body = " ".join(f"{t}%{{opacity:{v}}}" for t, v in clean)
     return f"      @keyframes {name} {{ {body} }}"
 

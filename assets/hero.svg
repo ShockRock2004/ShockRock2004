@@ -34,12 +34,12 @@
       .blink { animation: blink .9s steps(1, end) infinite !important; }
       @keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: .12; } }
 
-      @keyframes c0_0 { 0%{opacity:0} 11.964%{opacity:0} 100%{opacity:0} }
+      @keyframes c0_0 { 0%{opacity:1} 11.964%{opacity:0} 100%{opacity:0} }
       @keyframes c0_1 { 0%{opacity:0} 0.58%{opacity:1} 11.652%{opacity:0} 100%{opacity:0} }
       @keyframes c0_2 { 0%{opacity:0} 1.161%{opacity:1} 11.339%{opacity:0} 100%{opacity:0} }
       @keyframes c0_3 { 0%{opacity:0} 1.741%{opacity:1} 11.027%{opacity:0} 100%{opacity:0} }
       @keyframes c0_4 { 0%{opacity:0} 2.321%{opacity:1} 10.714%{opacity:0} 100%{opacity:0} }
-      @keyframes k0_0 { 0%{opacity:0} 0.58%{opacity:0} 11.964%{opacity:1} 12.277%{opacity:0} 100%{opacity:0} }
+      @keyframes k0_0 { 0%{opacity:1} 0.58%{opacity:0} 11.964%{opacity:1} 12.277%{opacity:0} 100%{opacity:0} }
       @keyframes k0_1 { 0%{opacity:0} 0.58%{opacity:1} 1.161%{opacity:0} 11.652%{opacity:1} 11.964%{opacity:0} 100%{opacity:0} }
       @keyframes k0_2 { 0%{opacity:0} 1.161%{opacity:1} 1.741%{opacity:0} 11.339%{opacity:1} 11.652%{opacity:0} 100%{opacity:0} }
       @keyframes k0_3 { 0%{opacity:0} 1.741%{opacity:1} 2.321%{opacity:0} 11.027%{opacity:1} 11.339%{opacity:0} 100%{opacity:0} }
