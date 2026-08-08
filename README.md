@@ -73,8 +73,6 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 
 ## Currently learning
 
-Working through the fundamentals alongside building.
-
 <div align="center">
 
 <img src="assets/foundations.svg" alt="System design, networking, operating systems, DBMS, DSA and competitive programming" width="100%" />

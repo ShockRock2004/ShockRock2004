@@ -21,7 +21,7 @@ PITCH = 5          # px between dot centres
 ROWS = 15          # hanzi and kana need this much to stay legible
 COLS = 86
 X0, Y0 = 717, 84   # top left dot centre; clear of the wordmark
-DOT_R = 1.5
+DOT_R = 1.6
 SS = 8             # supersample factor used when rasterising glyphs
 INK = 0.38         # coverage above which a grid cell counts as lit
 CUR_GAP = 1        # columns between the text and the caret
@@ -32,6 +32,8 @@ CUR_H = 2          # caret height in rows, sitting on the baseline
 SLOT = 3.2         # seconds each greeting owns
 TYPE = 0.13        # seconds between characters
 CLEAR = 0.45       # blank tail before the next greeting
+ERASE = 0.07       # seconds per character when backspacing the word away
+BEZEL = 6          # padding between the dot grid and the panel frame
 
 CJK = "C:/Windows/Fonts/msyh.ttc"      # Microsoft YaHei: latin, cyrillic, greek, kana, hanzi
 KOREAN = "C:/Windows/Fonts/malgun.ttf"  # Malgun Gothic: hangul
@@ -108,6 +110,21 @@ def rasterise(text, path):
     return chars, cursors
 
 
+def keyframe(name, stops):
+    """Build a keyframe from (time_percent, opacity) stops.
+
+    CSS needs strictly increasing offsets, so collapse any that collide after
+    rounding rather than emitting a rule the browser will silently drop.
+    """
+    clean = []
+    for t, v in stops:
+        if clean and t <= clean[-1][0]:
+            continue
+        clean.append((t, v))
+    body = " ".join(f"{t}%{{opacity:{v}}}" for t, v in clean)
+    return f"      @keyframes {name} {{ {body} }}"
+
+
 def wordmark():
     """Outline the wordmark, split into two differently coloured runs.
 
@@ -144,15 +161,17 @@ def main(out):
     for w, (text, lang, path) in enumerate(GREETINGS):
         chars, cursors = rasterise(text, path)
         base = w * SLOT
-        off = base + SLOT - CLEAR
+        n = len(chars)
+        erase_at = base + SLOT - CLEAR - n * ERASE  # backspacing starts here
 
         parts = []
         for i, dots in enumerate(chars):
             on = base + i * TYPE
+            # the last character is deleted first
+            off = erase_at + (n - 1 - i) * ERASE
             name = f"c{w}_{i}"
             keyframes.append(
-                f"      @keyframes {name} {{ 0%{{opacity:0}} {pct(on)}%{{opacity:1}} "
-                f"{pct(off)}%{{opacity:0}} 100%{{opacity:0}} }}"
+                keyframe(name, [(0, 0), (pct(on), 1), (pct(off), 0), (100, 0)])
             )
             # r is a geometry property and does not inherit from the parent <g>,
             # so every circle carries it explicitly
@@ -165,15 +184,23 @@ def main(out):
             vis = 1 if w == 0 else 0
             parts.append(f'<g opacity="{vis}" style="animation-name:{name}">{d}</g>')
 
-        # cursor block advances one position per character, then holds until clear
+        # caret advances one column per character while typing, then retreats
+        # back through the same positions as the word is deleted
         for i, col in enumerate(cursors):
-            on = base + i * TYPE
-            end = base + (i + 1) * TYPE if i < len(cursors) - 1 else off
             name = f"k{w}_{i}"
-            keyframes.append(
-                f"      @keyframes {name} {{ 0%{{opacity:0}} {pct(on)}%{{opacity:1}} "
-                f"{pct(end)}%{{opacity:0}} 100%{{opacity:0}} }}"
-            )
+            if i < n:
+                stops = [
+                    (0, 0),
+                    (pct(base + i * TYPE), 1),
+                    (pct(base + (i + 1) * TYPE), 0),
+                    (pct(erase_at + (n - 1 - i) * ERASE), 1),
+                    (pct(erase_at + (n - i) * ERASE), 0),
+                    (100, 0),
+                ]
+            else:
+                # parked at the end of the finished word until the delete starts
+                stops = [(0, 0), (pct(base + n * TYPE), 1), (pct(erase_at), 0), (100, 0)]
+            keyframes.append(keyframe(name, stops))
             # underscore caret rather than a block, so it never reads as an "l"
             blk = "".join(
                 f'<circle cx="{X0 + (col + dc) * PITCH}" cy="{Y0 + r * PITCH}" r="{DOT_R}"/>'
@@ -197,11 +224,11 @@ def main(out):
 
   <defs>
     <pattern id="panel" width="{PITCH}" height="{PITCH}" patternUnits="userSpaceOnUse">
-      <circle cx="{X0 % PITCH}" cy="{Y0 % PITCH}" r="1.0" fill="#15212B"/>
+      <circle cx="{X0 % PITCH}" cy="{Y0 % PITCH}" r="1.1" fill="#1C2B37"/>
     </pattern>
 
     <filter id="led" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="1.5" result="b"/>
+      <feGaussianBlur stdDeviation="1.3" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
@@ -235,6 +262,7 @@ def main(out):
   <rect x="0.5" y="0.5" width="1199" height="237" rx="14" fill="#0B0F14" stroke="#1B2733"/>
 
   <!-- dot matrix panel : hello, typed out in seven languages -->
+  <rect x="{X0 - PITCH / 2 - BEZEL}" y="{Y0 - PITCH / 2 - BEZEL}" width="{COLS * PITCH + BEZEL * 2}" height="{ROWS * PITCH + BEZEL * 2}" rx="8" fill="#0D151C" stroke="#1B2733"/>
   <rect x="{X0 - PITCH / 2}" y="{Y0 - PITCH / 2}" width="{COLS * PITCH}" height="{ROWS * PITCH}" fill="url(#panel)"/>
   <g id="hello" fill="#38BDF8" filter="url(#led)">
 {chr(10).join(groups)}
