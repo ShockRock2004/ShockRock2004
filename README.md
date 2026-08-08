@@ -15,11 +15,24 @@
 
 ## About
 
-Undergraduate engineering student at IIT Madras passionate about problem solving and software architecture. Fluent in C++ and JavaScript. Currently building real time voice systems where an AI agent has to hold a conversation on a live phone call.
+<table>
+<tr>
+<td valign="top">
 
-I have production experience with live call audio pipelines that feed AI agents inside a latency budget that does not forgive mistakes. Alongside that I build agentic workflows where a model gets tools and state and a verification step rather than a single prompt. Most of that work sits in private repositories so this profile shows the public side.
+Hi, I'm an engineering undergrad at IIT Madras. I love tackling hard DSA problems and diving deep into system architecture. My go-to languages are C++ and JavaScript.
+
+I have hands-on experience building production audio pipelines for Voice AI, specifically designing systems that can hold natural conversations over live phone calls. Alongside my AI work, I also have a strong background in full-stack and app development, giving me an end-to-end perspective on building software.
+
+Lately, I've been exploring agentic AI and practical LLM applications to solve real-world problems.
 
 **Open to SDE roles.**
+
+</td>
+<td width="330" valign="top">
+<img src="assets/about.jpg" alt="working at a multi monitor setup" width="320" />
+</td>
+</tr>
+</table>
 
 ---
 

@@ -11,12 +11,16 @@ viewer having a Chinese, Japanese or Korean font installed.
 
 import sys
 from PIL import Image, ImageDraw, ImageFont
+from fontTools.ttLib import TTFont
+from fontTools.pens.svgPathPen import SVGPathPen
+from fontTools.pens.transformPen import TransformPen
+from fontTools.varLib import instancer
 
 # --- panel geometry -------------------------------------------------------
 PITCH = 5          # px between dot centres
 ROWS = 15          # hanzi and kana need this much to stay legible
 COLS = 86
-X0, Y0 = 717, 102  # top left dot centre; clear of the wordmark and lede
+X0, Y0 = 717, 84   # top left dot centre; clear of the wordmark
 DOT_R = 1.5
 SS = 8             # supersample factor used when rasterising glyphs
 INK = 0.38         # coverage above which a grid cell counts as lit
@@ -31,6 +35,17 @@ CLEAR = 0.45       # blank tail before the next greeting
 
 CJK = "C:/Windows/Fonts/msyh.ttc"      # Microsoft YaHei: latin, cyrillic, greek, kana, hanzi
 KOREAN = "C:/Windows/Fonts/malgun.ttf"  # Malgun Gothic: hangul
+
+# --- wordmark -------------------------------------------------------------
+# Shipped as outlines rather than a font-family, so the wordmark is the same
+# face for every viewer instead of resolving to whatever they happen to have.
+WM_FONT = "C:/Windows/Fonts/bahnschrift.ttf"  # DIN-style, technical, not a terminal face
+WM_WEIGHT = 600     # bahnschrift is variable (wght 300-700); default 400 reads too light
+WM_TEXT = "ShockRock2004"
+WM_SPLIT = 9        # "ShockRock" | "2004"
+WM_SIZE = 54
+WM_X, WM_BASE = 40, 128
+WM_TRACK = -0.6     # px of extra tracking per glyph
 
 GREETINGS = [
     ("HELLO", "english", CJK),
@@ -93,6 +108,34 @@ def rasterise(text, path):
     return chars, cursors
 
 
+def wordmark():
+    """Outline the wordmark, split into two differently coloured runs.
+
+    Returns (path_for_name, path_for_year, total_advance).
+    """
+    font = TTFont(WM_FONT, fontNumber=0)
+    if "fvar" in font:
+        font = instancer.instantiateVariableFont(font, {"wght": WM_WEIGHT})
+    upem = font["head"].unitsPerEm
+    glyphs = font.getGlyphSet()
+    cmap = font.getBestCmap()
+    widths = font["hmtx"]
+    scale = WM_SIZE / upem
+
+    pens = [SVGPathPen(glyphs), SVGPathPen(glyphs)]
+    cursor = 0.0
+    for i, ch in enumerate(WM_TEXT):
+        name = cmap[ord(ch)]
+        # y is flipped: font outlines grow upward, SVG grows downward
+        target = TransformPen(
+            pens[0 if i < WM_SPLIT else 1],
+            (scale, 0, 0, -scale, WM_X + cursor, WM_BASE),
+        )
+        glyphs[name].draw(target)
+        cursor += widths[name][0] * scale + WM_TRACK
+    return pens[0].getCommands(), pens[1].getCommands(), cursor
+
+
 def main(out):
     cycle = SLOT * len(GREETINGS)
     pct = lambda t: round(100 * t / cycle, 3)
@@ -147,7 +190,9 @@ def main(out):
             f'    <g aria-label="{text} ({lang})">\n      ' + "\n      ".join(parts) + "\n    </g>"
         )
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-label="ShockRock2004. Agentic AI, voice AI and LLM systems. Undergraduate at IIT Madras. Open to SDE roles, graduating 2027.">
+    wm_name, wm_year, wm_adv = wordmark()
+
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="238" viewBox="0 0 1200 238" role="img" aria-label="ShockRock2004. Stack C++, JavaScript, Python. Shipped grindz.dev. Open to SDE roles, graduating 2027.">
   <title>ShockRock2004</title>
 
   <defs>
@@ -164,10 +209,8 @@ def main(out):
       .mono {{ font-family: ui-monospace, "Cascadia Mono", "Cascadia Code", "JetBrains Mono",
                "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; }}
 
-      .kicker {{ font-size: 11.5px; letter-spacing: 3px; fill: #55636F; }}
       .status {{ font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
                  font-size: 10.5px; font-weight: 700; letter-spacing: 1.4px; fill: #34D399; }}
-      .lede   {{ font-size: 14px; fill: #7C8B9A; }}
       .lbl    {{ font-size: 9.5px; letter-spacing: 2px; fill: #46525E; }}
       .val    {{ font-size: 12.5px; fill: #C6D2DE; }}
 
@@ -183,14 +226,13 @@ def main(out):
       #hello g {{ animation-duration: {cycle}s; animation-timing-function: steps(1, end);
                  animation-iteration-count: infinite; }}
       .blink {{ animation: blink .9s steps(1, end) infinite !important; }}
-      .caret {{ animation: blink .9s steps(1, end) infinite; }}
       @keyframes blink {{ 0%, 55% {{ opacity: 1; }} 56%, 100% {{ opacity: .12; }} }}
 
 {chr(10).join(keyframes)}
     </style>
   </defs>
 
-  <rect x="0.5" y="0.5" width="1199" height="279" rx="14" fill="#0B0F14" stroke="#1B2733"/>
+  <rect x="0.5" y="0.5" width="1199" height="237" rx="14" fill="#0B0F14" stroke="#1B2733"/>
 
   <!-- dot matrix panel : hello, typed out in seven languages -->
   <rect x="{X0 - PITCH / 2}" y="{Y0 - PITCH / 2}" width="{COLS * PITCH}" height="{ROWS * PITCH}" fill="url(#panel)"/>
@@ -198,49 +240,41 @@ def main(out):
 {chr(10).join(groups)}
   </g>
 
-  <!-- top strip -->
+  <!-- status -->
   <g class="in">
-    <text class="mono kicker" x="40" y="45">AGENTIC AI &#160;&#183;&#160; VOICE AI &#160;&#183;&#160; LLM SYSTEMS</text>
-
-    <rect x="1020" y="28" width="140" height="26" rx="13" fill="#0C1A17" stroke="#1E3A34"/>
-    <circle class="dot" cx="1040" cy="41" r="3.5" fill="#34D399"/>
-    <text class="status" x="1054" y="45">OPEN TO WORK</text>
+    <rect x="1020" y="26" width="140" height="26" rx="13" fill="#0C1A17" stroke="#1E3A34"/>
+    <circle class="dot" cx="1040" cy="39" r="3.5" fill="#34D399"/>
+    <text class="status" x="1054" y="43">OPEN TO WORK</text>
   </g>
 
-  <line x1="40" y1="68" x2="1160" y2="68" stroke="#16202B"/>
+  <line x1="40" y1="66" x2="1160" y2="66" stroke="#16202B"/>
 
-  <!-- wordmark, framed as a shell line. the caret is a tspan inside the same
-       <text> so it tracks the wordmark's width across monospace stacks rather
-       than sitting at a hardcoded x that only lines up in one font. -->
+  <!-- wordmark, shipped as outlines so the face is identical for every viewer -->
   <g class="in" style="animation-delay:.08s">
-    <text class="mono" x="40" y="142" font-size="20" fill="#34D399">~ $</text>
-    <text class="mono" x="100" y="142" font-size="50" font-weight="700" letter-spacing="-1" fill="#E6EDF3">ShockRock<tspan fill="#22D3EE">2004</tspan><tspan class="caret" fill="#22D3EE"> _</tspan></text>
-    <rect x="100" y="160" width="56" height="3" rx="1.5" fill="#22D3EE"/>
-  </g>
-
-  <g class="in" style="animation-delay:.16s">
-    <text class="mono lede" x="40" y="192">undergraduate at IIT Madras &#160;&#183;&#160; agentic systems and real time voice</text>
+    <path d="{wm_name}" fill="#E6EDF3"/>
+    <path d="{wm_year}" fill="#22D3EE"/>
+    <rect x="{WM_X}" y="144" width="56" height="3" rx="1.5" fill="#22D3EE"/>
   </g>
 
   <!-- spec strip -->
-  <line x1="40" y1="218" x2="1160" y2="218" stroke="#16202B"/>
+  <line x1="40" y1="172" x2="1160" y2="172" stroke="#16202B"/>
 
-  <g class="in" style="animation-delay:.24s">
-    <line x1="305" y1="226" x2="305" y2="264" stroke="#16202B"/>
-    <line x1="595" y1="226" x2="595" y2="264" stroke="#16202B"/>
-    <line x1="885" y1="226" x2="885" y2="264" stroke="#16202B"/>
+  <g class="in" style="animation-delay:.16s">
+    <line x1="305" y1="180" x2="305" y2="218" stroke="#16202B"/>
+    <line x1="595" y1="180" x2="595" y2="218" stroke="#16202B"/>
+    <line x1="885" y1="180" x2="885" y2="218" stroke="#16202B"/>
 
-    <text class="mono lbl" x="40"  y="238">STACK</text>
-    <text class="mono val" x="40"  y="257">C++ &#183; JavaScript &#183; Python</text>
+    <text class="mono lbl" x="40"  y="192">STACK</text>
+    <text class="mono val" x="40"  y="211">C++ &#183; JavaScript &#183; Python</text>
 
-    <text class="mono lbl" x="330" y="238">SHIPPED</text>
-    <text class="mono val" x="330" y="257">grindz.dev</text>
+    <text class="mono lbl" x="330" y="192">SHIPPED</text>
+    <text class="mono val" x="330" y="211">grindz.dev</text>
 
-    <text class="mono lbl" x="620" y="238">LEARNING</text>
-    <text class="mono val" x="620" y="257">systems &#183; networks &#183; DSA</text>
+    <text class="mono lbl" x="620" y="192">LEARNING</text>
+    <text class="mono val" x="620" y="211">systems &#183; networks &#183; DSA</text>
 
-    <text class="mono lbl" x="910" y="238">GRADUATING</text>
-    <text class="mono val" x="910" y="257">2027</text>
+    <text class="mono lbl" x="910" y="192">GRADUATING</text>
+    <text class="mono val" x="910" y="211">2027</text>
   </g>
 </svg>
 '''
@@ -252,6 +286,7 @@ def main(out):
     for text, lang, _ in GREETINGS:
         cps = " ".join(f"U+{ord(c):04X}" for c in text)
         print(f"  {lang:9} {len(text)} chars  {cps}")
+    print(f"wordmark advance {wm_adv:.1f}px, ends at x={WM_X + wm_adv:.0f} (panel starts {X0 - PITCH/2:.0f})")
     print(f"bytes {len(svg)}")
 
 
