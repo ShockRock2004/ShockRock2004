@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="92" viewBox="0 0 1040 92" role="img" aria-label="Currently learning: system design, networking, operating systems, databases, and data structures with competitive programming">
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="92" viewBox="0 0 1040 92" role="img" aria-label="Currently learning: system design, computer networking, operating systems, databases, and data structures with competitive programming">
   <title>currently learning</title>
 
   <defs>
@@ -37,7 +37,7 @@
     <text class="m t" x="97.5" y="76" text-anchor="middle">System Design</text>
   </g>
 
-  <!-- Networking -->
+  <!-- Computer Networking -->
   <g class="card" style="animation-delay:.08s">
     <rect x="211.5" y="0.5" width="194" height="91" rx="10" fill="#0F1821" stroke="#1E2C38"/>
     <rect x="288.5" y="16" width="40" height="40" rx="10" fill="#152534" stroke="#2E4A61"/>
@@ -50,7 +50,7 @@
       <circle cx="14" cy="5"  r="2.7" fill="#152534"/>
       <circle cx="9"  cy="15" r="2.7" fill="#152534"/>
     </g>
-    <text class="m t" x="308.5" y="76" text-anchor="middle">Networking</text>
+    <text class="m t" x="308.5" y="76" text-anchor="middle">Computer Networking</text>
   </g>
 
   <!-- Operating Systems -->
