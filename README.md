@@ -7,7 +7,7 @@
 <img src="https://img.shields.io/badge/IIT_Madras-final_year-A78BFA?style=flat-square&labelColor=0B0F14" alt="IIT Madras final year" />
 <img src="https://img.shields.io/badge/focus-agentic_AI_&_voice-22D3EE?style=flat-square&labelColor=0B0F14" alt="focus" />
 <img src="https://img.shields.io/github/stars/ShockRock2004/grindz?style=flat-square&logo=github&label=grindz&color=5EEAD4&labelColor=0B0F14" alt="grindz stars" />
-<img src="https://img.shields.io/badge/open_to-SDE_roles_2026-34D399?style=flat-square&labelColor=0B0F14" alt="open to SDE roles 2026" />
+<img src="https://img.shields.io/badge/open_to-SDE_roles_2027-34D399?style=flat-square&labelColor=0B0F14" alt="open to SDE roles 2027" />
 
 </div>
 
