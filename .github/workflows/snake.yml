@@ -1,4 +1,4 @@
-name: generate contribution snake
+name: generate profile cards
 
 on:
   schedule:
@@ -24,6 +24,14 @@ jobs:
           outputs: |
             dist/snake.svg?palette=github-dark&color_snake=#22D3EE
             dist/snake-light.svg?palette=github-light&color_snake=#0E7490
+
+      - name: generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&bg_color=0B0F14&title_color=22D3EE&icon_color=A78BFA&text_color=9FB3C8&ring_color=22D3EE
+          path: dist/stats.svg
+          token: ${{ secrets.STATS_TOKEN }}
 
       - name: push to the output branch
         uses: crazy-max/ghaction-github-pages@v4
