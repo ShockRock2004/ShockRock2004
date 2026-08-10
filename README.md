@@ -114,8 +114,8 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 
 <br/><br/>
 
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=ShockRock2004&theme=github_dark" alt="languages by repository" height="185" />
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=ShockRock2004&theme=github_dark" alt="languages by commit" height="185" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=ShockRock2004&theme=github_dark&bg_color=0B0F14&title_color=22D3EE&text_color=9FB3C8&icon_color=A78BFA&border_color=1B2733&chart_color=22D3EE" alt="profile details" height="200" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=ShockRock2004&theme=github_dark&bg_color=0B0F14&title_color=22D3EE&text_color=9FB3C8&icon_color=A78BFA&border_color=1B2733&chart_color=22D3EE" alt="languages by commit" height="200" />
 
 <br/><br/>
 
