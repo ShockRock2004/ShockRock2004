@@ -119,7 +119,7 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 
 <br/><br/>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=ShockRock2004&bg_color=0B0F14&color=9FB3C8&line=22D3EE&point=A78BFA&area=true&hide_border=true&custom_title=commits%20over%20time" alt="commit activity" width="100%" />
+<img src="https://ghchart.rshah.org/22D3EE/ShockRock2004" alt="commit activity heatmap" width="100%" />
 
 <br/><br/>
 
