@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: prepare a world-writable dist directory
+        run: mkdir -p dist && chmod 777 dist
+
       - name: generate snake from the contribution grid
         uses: Platane/snk@v3
         id: snake-gif
