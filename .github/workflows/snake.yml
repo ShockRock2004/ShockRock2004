@@ -43,6 +43,9 @@ jobs:
           path: dist/streak.svg
           token: ${{ secrets.STATS_TOKEN }}
 
+      - name: generate LeetCode ring card
+        run: curl -sf "https://www.readmecodegen.com/api/leetcode-stats?username=ShockRock2004&theme=dark&hard=true&acceptance=true&reputation=true" -o dist/leetcode-ring.svg
+
       - name: generate LeetCode submission heatmap
         run: |
           curl -sf "https://leetcard.jacoblin.cool/ShockRock2004?theme=dark&ext=heatmap&colors=0B0F14,0B0F14,E6EDF3,9FB3C8,22D3EE,22D3EE,5EEAD4" -o dist/leetcode-heatmap.svg
