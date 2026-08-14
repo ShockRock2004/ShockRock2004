@@ -44,7 +44,13 @@ jobs:
           token: ${{ secrets.STATS_TOKEN }}
 
       - name: generate LeetCode ring card
-        run: curl -sf "https://www.readmecodegen.com/api/leetcode-stats?username=ShockRock2004&theme=dark&hard=true&acceptance=true&reputation=true" -o dist/leetcode-ring.svg
+        run: |
+          curl -sf "https://www.readmecodegen.com/api/leetcode-stats?username=ShockRock2004&theme=dark&hard=true&acceptance=true&reputation=true" -o dist/leetcode-ring.svg
+          # GitHub's markdown renderer turns an <img height="..."> attribute into a percentage
+          # max-width style, which deadlocks table auto-layout when the image sits beside another
+          # column (the cell collapses to zero width). Bake the display size into the SVG itself
+          # instead, so the README's <img> tag needs no width/height attribute at all.
+          sed -i 's/<svg width="450" height="275"/<svg width="524" height="320"/' dist/leetcode-ring.svg
 
       - name: generate LeetCode submission heatmap
         run: |
