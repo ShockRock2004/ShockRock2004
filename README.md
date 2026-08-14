@@ -110,12 +110,18 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/ShockRock2004/ShockRock2004/output/stats.svg" alt="GitHub statistics" height="165" />
-<img src="https://streak-stats.demolab.com?user=ShockRock2004&hide_border=true&background=0B0F14&stroke=1B2733&ring=22D3EE&fire=A78BFA&currStreakLabel=22D3EE&sideLabels=9FB3C8&currStreakNum=E6EDF3&sideNums=E6EDF3&dates=5D6B7A&border_radius=12" alt="contribution streak" height="165" />
+<img src="https://raw.githubusercontent.com/ShockRock2004/ShockRock2004/output/streak.svg" alt="contribution streak" height="165" />
 
 <br/><br/>
 
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=ShockRock2004&theme=github_dark&bg_color=0B0F14&title_color=22D3EE&text_color=9FB3C8&icon_color=A78BFA&border_color=1B2733&chart_color=22D3EE" alt="profile details" height="200" />
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=ShockRock2004&theme=github_dark&bg_color=0B0F14&title_color=22D3EE&text_color=9FB3C8&icon_color=A78BFA&border_color=1B2733&chart_color=22D3EE" alt="languages by commit" height="200" />
+
+<br/><br/>
+
+<a href="https://leetcode.com/u/mXNzzOCSyf/">
+  <img src="https://leetcard.jacoblin.cool/mXNzzOCSyf?theme=dark&colors=0B0F14,0B0F14,E6EDF3,9FB3C8,22D3EE,A78BFA,5EEAD4&border=1&radius=12&font=Baloo%202" alt="LeetCode stats" height="200" />
+</a>
 
 <br/><br/>
 
@@ -134,6 +140,9 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 </a>
 <a href="https://grindz.dev">
   <img src="https://img.shields.io/badge/grindz.dev-live-34D399?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0B0F14" alt="grindz.dev" />
+</a>
+<a href="https://leetcode.com/u/mXNzzOCSyf/">
+  <img src="https://img.shields.io/badge/LeetCode-mXNzzOCSyf-A78BFA?style=for-the-badge&logo=leetcode&logoColor=white&labelColor=0B0F14" alt="LeetCode profile" />
 </a>
 
 </div>

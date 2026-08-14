@@ -36,6 +36,13 @@ jobs:
           path: dist/stats.svg
           token: ${{ secrets.STATS_TOKEN }}
 
+      - name: generate streak stats card
+        uses: DenverCoder1/github-readme-streak-stats@main
+        with:
+          options: user=${{ github.repository_owner }}&hide_border=true&background=0B0F14&stroke=1B2733&ring=22D3EE&fire=A78BFA&currStreakLabel=22D3EE&sideLabels=9FB3C8&currStreakNum=E6EDF3&sideNums=E6EDF3&dates=5D6B7A&border_radius=12
+          path: dist/streak.svg
+          token: ${{ secrets.STATS_TOKEN }}
+
       - name: frame the snake card to match the site's dark cards
         run: |
           VB=$(grep -o 'viewBox="[^"]*"' dist/snake.svg | head -1 | cut -d'"' -f2)
