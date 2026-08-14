@@ -49,12 +49,14 @@ jobs:
       - name: generate LeetCode submission heatmap
         run: |
           curl -sf "https://leetcard.jacoblin.cool/ShockRock2004?theme=dark&ext=heatmap&colors=0B0F14,0B0F14,E6EDF3,9FB3C8,22D3EE,22D3EE,5EEAD4" -o dist/leetcode-heatmap.svg
-          # the ext=heatmap card is the stats card with a fixed 120px calendar strip appended below it;
-          # crop the viewBox to just that strip so only the heatmap ships, not the duplicate stats
+          # the ext=heatmap card is the stats card with a "Heatmap (Last 52 Weeks)" title, the grid,
+          # and date labels appended below it (a fixed 120px strip). Crop tighter still, to just the
+          # grid + date labels (92px), dropping the title so the grid gets more width once it's
+          # scaled up to match the ring card's display height.
           VB=$(grep -o 'viewBox="[^"]*"' dist/leetcode-heatmap.svg | head -1 | cut -d'"' -f2)
           read -r X Y W H <<< "$VB"
-          CROP_Y=$((H - 120))
-          sed -i "s|viewBox=\"$VB\"|viewBox=\"$X $CROP_Y $W 120\"|; s|width=\"$W\" height=\"$H\"|width=\"$W\" height=\"120\"|" dist/leetcode-heatmap.svg
+          CROP_Y=$((H - 92))
+          sed -i "s|viewBox=\"$VB\"|viewBox=\"$X $CROP_Y $W 92\"|; s|width=\"$W\" height=\"$H\"|width=\"$W\" height=\"92\"|" dist/leetcode-heatmap.svg
 
       - name: frame the snake card to match the site's dark cards
         run: |
