@@ -53,17 +53,22 @@ jobs:
           # and date labels appended below it (a fixed 120px strip). Crop tighter still, to just the
           # grid + date labels (92px), dropping the title so the grid gets more width once it's
           # scaled up to match the ring card's display height.
+          # the grid spans x 28.65-479.1 and the date labels x 20-480, so the card carries 20px of
+          # side padding. Trim that to 10px as well, so the grid reaches closer to the card edge
+          # and the card ends closer to the README column edge.
           CROP_H=92
+          CROP_X=10
+          CROP_W=480
           VB=$(grep -o 'viewBox="[^"]*"' dist/leetcode-heatmap.svg | head -1 | cut -d'"' -f2)
           read -r X Y W H <<< "$VB"
           CROP_Y=$((H - CROP_H))
           # GitHub rewrites an <img height="N"> into max-height:N, which can only shrink an image,
           # never enlarge it. Emit the intrinsic size at 2x the crop so the README's height attribute
           # still has headroom to scale the card up instead of being ignored.
-          sed -i "s|viewBox=\"$VB\"|viewBox=\"$X $CROP_Y $W $CROP_H\"|; s|width=\"$W\" height=\"$H\"|width=\"$((W * 2))\" height=\"$((CROP_H * 2))\"|" dist/leetcode-heatmap.svg
+          sed -i "s|viewBox=\"$VB\"|viewBox=\"$CROP_X $CROP_Y $CROP_W $CROP_H\"|; s|width=\"$W\" height=\"$H\"|width=\"$((CROP_W * 2))\" height=\"$((CROP_H * 2))\"|" dist/leetcode-heatmap.svg
           # the card's rounded background rect is drawn at the uncropped card's full size, so the crop
-          # would otherwise show square top corners. Re-fit it to the crop window to match the ring card.
-          sed -i "s|#background{transform:translate(0.5px, 0.5px);|#background{transform:translate(0.5px, $CROP_Y.5px);|; s|width:$((W - 1))px;height:$((H - 1))px;rx:4px|width:$((W - 1))px;height:$((CROP_H - 1))px;rx:4px|" dist/leetcode-heatmap.svg
+          # would otherwise cut its corners off. Re-fit it to the crop window to match the ring card.
+          sed -i "s|#background{transform:translate(0.5px, 0.5px);|#background{transform:translate($CROP_X.5px, $CROP_Y.5px);|; s|width:$((W - 1))px;height:$((H - 1))px;rx:4px|width:$((CROP_W - 1))px;height:$((CROP_H - 1))px;rx:4px|" dist/leetcode-heatmap.svg
 
       - name: frame the snake card to match the site's dark cards
         run: |
