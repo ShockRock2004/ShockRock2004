@@ -120,8 +120,12 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 <br/><br/>
 
 <a href="https://leetcode.com/u/mXNzzOCSyf/">
-  <img src="https://leetcard.jacoblin.cool/mXNzzOCSyf?theme=dark&colors=0B0F14,0B0F14,E6EDF3,9FB3C8,22D3EE,A78BFA,5EEAD4&border=1&radius=12&font=Baloo%202" alt="LeetCode stats" height="200" />
+  <img src="https://www.readmecodegen.com/api/leetcode-stats?username=mXNzzOCSyf&theme=dark&hard=true&acceptance=true&reputation=true" alt="LeetCode stats" height="200" />
 </a>
+
+<br/><br/>
+
+<img src="https://raw.githubusercontent.com/ShockRock2004/ShockRock2004/output/leetcode-heatmap.svg" alt="LeetCode submission heatmap" width="100%" />
 
 <br/><br/>
 
