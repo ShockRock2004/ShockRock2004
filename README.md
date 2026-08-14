@@ -129,18 +129,10 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 
 <div align="center">
 
-<table width="100%">
-<tr>
-<td valign="top">
 <a href="https://leetcode.com/u/ShockRock2004/">
   <img src="https://raw.githubusercontent.com/ShockRock2004/ShockRock2004/output/leetcode-ring.svg" alt="LeetCode stats" />
 </a>
-</td>
-<td valign="middle" width="100%">
-<img src="https://raw.githubusercontent.com/ShockRock2004/ShockRock2004/output/leetcode-heatmap.svg" alt="LeetCode submission heatmap" width="100%" />
-</td>
-</tr>
-</table>
+<img src="https://raw.githubusercontent.com/ShockRock2004/ShockRock2004/output/leetcode-heatmap.svg" alt="LeetCode submission heatmap" width="320" />
 
 </div>
 
