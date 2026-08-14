@@ -120,7 +120,7 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 <br/><br/>
 
 <a href="https://leetcode.com/u/mXNzzOCSyf/">
-  <img src="https://www.readmecodegen.com/api/leetcode-stats?username=mXNzzOCSyf&theme=dark&hard=true&acceptance=true&reputation=true" alt="LeetCode stats" height="200" />
+  <img src="https://www.readmecodegen.com/api/leetcode-stats?username=mXNzzOCSyf&theme=dark&hard=true&acceptance=true&reputation=true" alt="LeetCode stats" height="320" />
 </a>
 
 <br/><br/>
