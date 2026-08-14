@@ -119,8 +119,8 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 
 <br/><br/>
 
-<a href="https://leetcode.com/u/mXNzzOCSyf/">
-  <img src="https://www.readmecodegen.com/api/leetcode-stats?username=mXNzzOCSyf&theme=dark&hard=true&acceptance=true&reputation=true" alt="LeetCode stats" height="320" />
+<a href="https://leetcode.com/u/ShockRock2004/">
+  <img src="https://www.readmecodegen.com/api/leetcode-stats?username=ShockRock2004&theme=dark&hard=true&acceptance=true&reputation=true" alt="LeetCode stats" height="320" />
 </a>
 
 <br/><br/>
@@ -145,8 +145,8 @@ Shipped as a React Native Android app and an installable PWA against one Supabas
 <a href="https://grindz.dev">
   <img src="https://img.shields.io/badge/grindz.dev-live-34D399?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0B0F14" alt="grindz.dev" />
 </a>
-<a href="https://leetcode.com/u/mXNzzOCSyf/">
-  <img src="https://img.shields.io/badge/LeetCode-mXNzzOCSyf-A78BFA?style=for-the-badge&logo=leetcode&logoColor=white&labelColor=0B0F14" alt="LeetCode profile" />
+<a href="https://leetcode.com/u/ShockRock2004/">
+  <img src="https://img.shields.io/badge/LeetCode-ShockRock2004-A78BFA?style=for-the-badge&logo=leetcode&logoColor=white&labelColor=0B0F14" alt="LeetCode profile" />
 </a>
 
 </div>

@@ -45,7 +45,7 @@ jobs:
 
       - name: generate LeetCode submission heatmap
         run: |
-          curl -sf "https://leetcard.jacoblin.cool/mXNzzOCSyf?theme=dark&ext=heatmap&colors=0B0F14,0B0F14,E6EDF3,9FB3C8,22D3EE,22D3EE,5EEAD4" -o dist/leetcode-heatmap.svg
+          curl -sf "https://leetcard.jacoblin.cool/ShockRock2004?theme=dark&ext=heatmap&colors=0B0F14,0B0F14,E6EDF3,9FB3C8,22D3EE,22D3EE,5EEAD4" -o dist/leetcode-heatmap.svg
           # the ext=heatmap card is the stats card with a fixed 120px calendar strip appended below it;
           # crop the viewBox to just that strip so only the heatmap ships, not the duplicate stats
           VB=$(grep -o 'viewBox="[^"]*"' dist/leetcode-heatmap.svg | head -1 | cut -d'"' -f2)
