@@ -16,12 +16,23 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      # every card is generated independently. One failing (an expired STATS_TOKEN took the whole
+      # job down for a month, so the LeetCode cards never refreshed) must not block the others.
+      # The publish step replaces the output branch wholesale, so keep the last published cards
+      # around to fall back on.
+      - name: fetch the last published cards
+        uses: actions/checkout@v4
+        with:
+          ref: output
+          path: previous
+
       - name: prepare a world-writable dist directory
         run: mkdir -p dist && chmod 777 dist
 
       - name: generate snake from the contribution grid
         uses: Platane/snk@v3
-        id: snake-gif
+        id: snake
+        continue-on-error: true
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
@@ -30,25 +41,30 @@ jobs:
 
       - name: generate stats card
         uses: stats-organization/github-readme-stats-action@v2
+        continue-on-error: true
         with:
           card: stats
           options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&hide_rank=true&bg_color=0B0F14&title_color=22D3EE&icon_color=A78BFA&text_color=9FB3C8&ring_color=22D3EE
           path: dist/stats.svg
           token: ${{ secrets.STATS_TOKEN }}
+          fail_on_error: true
 
       - name: generate streak stats card
         uses: DenverCoder1/github-readme-streak-stats@main
+        continue-on-error: true
         with:
           options: user=${{ github.repository_owner }}&hide_border=true&background=0B0F14&stroke=1B2733&ring=22D3EE&fire=A78BFA&currStreakLabel=22D3EE&sideLabels=9FB3C8&currStreakNum=E6EDF3&sideNums=E6EDF3&dates=5D6B7A&border_radius=12
           path: dist/streak.svg
           token: ${{ secrets.STATS_TOKEN }}
 
       - name: generate LeetCode ring card
-        run: curl -sf "https://www.readmecodegen.com/api/leetcode-stats?username=ShockRock2004&theme=dark&hard=true&acceptance=true&reputation=true" -o dist/leetcode-ring.svg
+        continue-on-error: true
+        run: curl -sf --retry 3 "https://www.readmecodegen.com/api/leetcode-stats?username=ShockRock2004&theme=dark&hard=true&acceptance=true&reputation=true" -o dist/leetcode-ring.svg
 
       - name: generate LeetCode submission heatmap
+        continue-on-error: true
         run: |
-          curl -sf "https://leetcard.jacoblin.cool/ShockRock2004?theme=dark&ext=heatmap&colors=0B0F14,0B0F14,E6EDF3,9FB3C8,22D3EE,22D3EE,5EEAD4" -o dist/leetcode-heatmap.svg
+          curl -sf --retry 3 "https://leetcard.jacoblin.cool/ShockRock2004?theme=dark&ext=heatmap&colors=0B0F14,0B0F14,E6EDF3,9FB3C8,22D3EE,22D3EE,5EEAD4" -o dist/leetcode-heatmap.svg
           # the ext=heatmap card is the stats card with a "Heatmap (Last 52 Weeks)" title, the grid,
           # and date labels appended below it (a fixed 120px strip). Crop tighter still, to just the
           # grid + date labels (92px), dropping the title so the grid gets more width once it's
@@ -71,11 +87,37 @@ jobs:
           sed -i "s|#background{transform:translate(0.5px, 0.5px);|#background{transform:translate($CROP_X.5px, $CROP_Y.5px);|; s|width:$((W - 1))px;height:$((H - 1))px;rx:4px|width:$((CROP_W - 1))px;height:$((CROP_H - 1))px;rx:4px|" dist/leetcode-heatmap.svg
 
       - name: frame the snake card to match the site's dark cards
+        if: steps.snake.outcome == 'success'
         run: |
           VB=$(grep -o 'viewBox="[^"]*"' dist/snake.svg | head -1 | cut -d'"' -f2)
           read -r X Y W H <<< "$VB"
           FRAME="<rect x=\"$X\" y=\"$Y\" width=\"$W\" height=\"$H\" rx=\"10\" ry=\"10\" fill=\"#0B0F14\" stroke=\"#1B2733\" stroke-width=\"1\"/>"
           sed -i "s|<svg\([^>]*\)>|<svg\1>${FRAME}|" dist/snake.svg
+
+      # a card counts as fresh only if it is a real SVG carrying its expected content and not one of
+      # the generators' error cards. Anything else is replaced by the last published copy.
+      - name: fall back to the last published copy of any card that failed
+        run: |
+          check() {
+            local f=$1 marker=$2
+            if grep -q '<svg' "dist/$f" 2>/dev/null && grep -q "$marker" "dist/$f" && ! grep -qiE 'something went wrong|bad credentials' "dist/$f"; then
+              echo "fresh: $f"
+            elif [ -f "previous/$f" ]; then
+              cp "previous/$f" "dist/$f"
+              echo "::warning::$f failed to regenerate, republishing the last good copy"
+              echo "$f" >> stale.txt
+            else
+              rm -f "dist/$f"
+              echo "::warning::$f failed to regenerate and there is no previous copy"
+              echo "$f" >> stale.txt
+            fi
+          }
+          check snake.svg '<svg'
+          check snake-light.svg '<svg'
+          check stats.svg '<svg'
+          check streak.svg '<svg'
+          check leetcode-ring.svg 'Solved'
+          check leetcode-heatmap.svg 'Heatmap'
 
       - name: push to the output branch
         uses: crazy-max/ghaction-github-pages@v4
@@ -84,3 +126,12 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # the fresh cards are already published above. Keep the run red anyway so a dead generator
+      # gets noticed instead of silently serving a stale card.
+      - name: report cards that could not be regenerated
+        run: |
+          if [ -s stale.txt ]; then
+            echo "::error::stale cards: $(tr '\n' ' ' < stale.txt). If stats.svg or streak.svg is listed, STATS_TOKEN has probably expired."
+            exit 1
+          fi
